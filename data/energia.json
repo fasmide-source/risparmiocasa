@@ -1,0 +1,25 @@
+{
+ "aggiornato": "2026-11-13T21:24:46.531929+00:00",
+ "profilo": {
+  "E": {
+   "consumo": 2700,
+   "kw": 3.0,
+   "unita": "kWh"
+  },
+  "G": {
+   "consumo": 1400,
+   "kw": 0,
+   "unita": "Smc"
+  }
+ },
+ "luce": {
+  "errore": "Nessun file offerte E trovato negli ultimi 15 giorni",
+  "top": [],
+  "candidati": []
+ },
+ "gas": {
+  "errore": "Nessun file offerte G trovato negli ultimi 15 giorni",
+  "top": [],
+  "candidati": []
+ }
+}
