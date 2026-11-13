@@ -1,7 +1,7 @@
 {
   "name": "RisparmioCasa",
   "short_name": "Risparmio",
-  "description": "Opportunità quotidiane per abbattere i costi della famiglia: bollette, fibra, RC auto, spesa, bonus Roma, Lazio e Governo.",
+  "description": "Opportunità quotidiane per abbattere i costi della famiglia: tariffe luce e gas ARERA, fibra, RC auto, spesa, bonus Roma, Lazio e Governo.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

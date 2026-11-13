@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
 RisparmioCasa - scanner giornaliero.
-Cerca su Google News (RSS) le opportunità di risparmio per la famiglia,
-aggiorna data/feed.json e invia una notifica push (ntfy e/o Telegram).
+1) Cerca su Google News (RSS) le opportunità di risparmio per la famiglia -> data/feed.json
+2) Aggiorna la classifica luce/gas a prezzo fisso dal Portale Offerte ARERA -> data/energia.json
+3) Invia una notifica push (ntfy e/o Telegram).
 Solo libreria standard Python: nessuna dipendenza da installare.
 """
 import hashlib
@@ -22,6 +23,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG = os.path.join(ROOT, "scanner", "config.json")
 FEED = os.path.join(ROOT, "data", "feed.json")
 UA = "Mozilla/5.0 (RisparmioCasa scanner; uso personale)"
+sys.path.insert(0, os.path.join(ROOT, "scanner"))
 
 
 def log(*a):
@@ -54,7 +56,6 @@ def google_news(query, max_items):
     for it in root.iter("item"):
         title = clean(it.findtext("title"))
         source = clean(it.findtext("source")) or ""
-        # Google News aggiunge " - Fonte" in coda al titolo
         if source and title.endswith(" - " + source):
             title = title[: -(len(source) + 3)]
         try:
@@ -77,9 +78,9 @@ def score(item, cfg):
     t = (item["title"] + " " + item["summary"]).lower()
     s = sum(2 for w in cfg["parole_bonus"] if w in t)
     if re.search(r"\b\d{1,3}\s?(%|euro|€)", t):
-        s += 3  # cifre concrete di sconto / importi
+        s += 3
     if any(x in (item["source"] or "").lower() for x in ["inps", "agenzia entrate", "mimit", "roma capitale", "regione lazio", "arera", "gazzetta ufficiale"]):
-        s += 5  # fonte istituzionale
+        s += 5
     return s
 
 
@@ -87,12 +88,13 @@ def norm_key(title):
     return re.sub(r"[^a-z0-9]", "", title.lower())[:80]
 
 
-def notify(new_items, cats, cfg):
-    if not new_items:
+def notify(new_items, cats, cfg, extra=None):
+    extra = extra or []
+    if not new_items and not extra:
         return
     top = sorted(new_items, key=lambda x: -x["score"])[: cfg["max_notizie_nella_notifica"]]
     lines = [f"{cats[i['category']]['emoji']} {i['title']}" for i in top]
-    msg = "\n".join(lines)
+    msg = "\n".join(extra + lines)
     title = f"RisparmioCasa: {len(new_items)} nuove opportunità"
     app_url = os.environ.get("APP_URL", "")
 
@@ -101,7 +103,7 @@ def notify(new_items, cats, cfg):
         try:
             http_post_json(os.environ.get("NTFY_SERVER", "https://ntfy.sh"), {
                 "topic": topic, "title": title, "message": msg,
-                "tags": ["moneybag"], "click": app_url or top[0]["link"], "priority": 3,
+                "tags": ["moneybag"], "click": app_url or (top[0]["link"] if top else ""), "priority": 3,
             })
             log("Notifica ntfy inviata")
         except Exception as e:
@@ -109,7 +111,8 @@ def notify(new_items, cats, cfg):
 
     tok, chat = os.environ.get("TELEGRAM_BOT_TOKEN"), os.environ.get("TELEGRAM_CHAT_ID")
     if tok and chat:
-        body = f"*{title}*\n\n" + "\n".join(f"{cats[i['category']]['emoji']} [{i['title']}]({i['link']})" for i in top)
+        body = f"*{title}*\n\n" + "".join(e + "\n" for e in extra) + "\n".join(
+            f"{cats[i['category']]['emoji']} [{i['title']}]({i['link']})" for i in top)
         if app_url:
             body += f"\n\n👉 Apri l'app: {app_url}"
         try:
@@ -120,8 +123,7 @@ def notify(new_items, cats, cfg):
             log("Errore Telegram:", e)
 
 
-def main():
-    cfg = json.load(open(CONFIG, encoding="utf-8"))
+def scan_news(cfg):
     cats = cfg["categorie"]
     try:
         old = json.load(open(FEED, encoding="utf-8"))
@@ -151,7 +153,7 @@ def main():
                 it["score"] = score(it, cfg)
                 it["found"] = datetime.now(timezone.utc).isoformat()
                 found.append(it)
-            time.sleep(1)  # cortesia verso il servizio
+            time.sleep(1)
 
     new_items = [i for i in found if i["id"] not in known_ids and norm_key(i["title"]) not in known_titles]
     limit = datetime.now(timezone.utc) - timedelta(days=cfg["giorni_archivio_feed"])
@@ -165,7 +167,19 @@ def main():
         "items": all_items,
     }, open(FEED, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     log(f"Nuove: {len(new_items)} | Totali nel feed: {len(all_items)}")
-    notify(new_items, cats, cfg)
+    return new_items
+
+
+def main():
+    cfg = json.load(open(CONFIG, encoding="utf-8"))
+    new_items = scan_news(cfg)
+    extra = []
+    try:
+        import energia
+        extra = energia.riepilogo_notifica(energia.main())
+    except Exception as e:
+        log("Classifica luce/gas non aggiornata:", e)
+    notify(new_items, cfg["categorie"], cfg, extra)
 
 
 if __name__ == "__main__":

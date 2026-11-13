@@ -1,13 +1,14 @@
 // Service worker RisparmioCasa: cache offline + controllo giornaliero (Periodic Background Sync, Chrome Android con app installata)
-const CACHE="rc-v1";
+const CACHE="rc-v6";
 const SHELL=["./","index.html","manifest.json","icons/icon-192.png","icons/icon-512.png"];
 self.addEventListener("install",e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)));self.skipWaiting()});
-self.addEventListener("activate",e=>e.waitUntil(self.clients.claim()));
+self.addEventListener("activate",e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener("fetch",e=>{
   const u=new URL(e.request.url);
   if(u.origin!==location.origin)return;
-  if(u.pathname.endsWith("feed.json")){ // rete prima, cache come riserva
-    e.respondWith(fetch(e.request).then(r=>{const cl=r.clone();caches.open(CACHE).then(c=>c.put("data/feed.json",cl));return r}).catch(()=>caches.match("data/feed.json")));
+  if(u.pathname.endsWith(".json")||u.pathname.endsWith(".html")||u.pathname.endsWith("/")){ // rete prima, cache come riserva
+    const key=u.pathname;
+    e.respondWith(fetch(e.request).then(r=>{const cl=r.clone();caches.open(CACHE).then(c=>c.put(key,cl));return r}).catch(()=>caches.match(key).then(r=>r||caches.match("index.html"))));
     return;
   }
   e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));

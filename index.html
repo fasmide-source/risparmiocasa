@@ -9,10 +9,10 @@
 <link rel="icon" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/icon-192.png">
 <style>
-:root{--bg:#f4f7f6;--card:#fff;--tx:#14211f;--mut:#5b6b68;--pri:#0f766e;--pri2:#ccfbf1;--bd:#e2e8e6;--warn:#b45309}
-@media (prefers-color-scheme:dark){:root{--bg:#0d1514;--card:#16211f;--tx:#e6f0ee;--mut:#9fb2ae;--pri:#2dd4bf;--pri2:#134e4a;--bd:#24332f;--warn:#fbbf24}}
+:root{--bg:#f4f7f6;--card:#fff;--tx:#14211f;--mut:#5b6b68;--pri:#0f766e;--pri2:#ccfbf1;--bd:#e2e8e6;--warn:#b45309;--gold:#d97706}
+@media (prefers-color-scheme:dark){:root{--bg:#0d1514;--card:#16211f;--tx:#e6f0ee;--mut:#9fb2ae;--pri:#2dd4bf;--pri2:#134e4a;--bd:#24332f;--warn:#fbbf24;--gold:#fbbf24}}
 *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--tx)}
-header{position:sticky;top:0;z-index:5;background:var(--pri);color:#fff;padding:14px 16px 10px}
+header{position:sticky;top:0;z-index:5;background:#0f766e;color:#fff;padding:14px 16px 10px}
 header h1{margin:0;font-size:1.25rem}header small{opacity:.85}
 .search{margin-top:10px;display:flex;gap:8px}
 .search input{flex:1;padding:10px 12px;border-radius:10px;border:0;font-size:1rem}
@@ -31,41 +31,50 @@ main{padding:12px 12px 90px;max-width:820px;margin:auto}
 .acts button,.acts a{border:1px solid var(--bd);background:transparent;color:var(--tx);padding:7px 10px;border-radius:9px;font-size:.85rem;text-decoration:none;cursor:pointer}
 .acts .saved{background:var(--pri);color:#fff;border-color:var(--pri)}
 textarea{width:100%;margin-top:8px;border:1px solid var(--bd);border-radius:9px;padding:8px;background:var(--bg);color:var(--tx);font:inherit}
+input,select{background:var(--bg);color:var(--tx);border:1px solid var(--bd);border-radius:8px;font:inherit}
 nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:var(--card);border-top:1px solid var(--bd);padding-bottom:env(safe-area-inset-bottom)}
-nav button{flex:1;border:0;background:none;color:var(--mut);padding:10px 0;font-size:.75rem;cursor:pointer}
-nav button b{display:block;font-size:1.25rem}nav button.on{color:var(--pri);font-weight:700}
+nav button{flex:1;border:0;background:none;color:var(--mut);padding:9px 0;font-size:.7rem;cursor:pointer;min-width:0}
+nav button b{display:block;font-size:1.2rem}nav button.on{color:var(--pri);font-weight:700}
 .empty{text-align:center;color:var(--mut);padding:40px 10px}
 .status{font-size:.8rem;color:var(--mut);margin:0 0 10px}
-.src a{display:block;padding:10px 0;border-bottom:1px solid var(--bd);color:var(--pri);text-decoration:none}
-.src h4{margin:14px 0 4px}
 label.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--bd)}
 .btn{background:var(--pri);color:#fff;border:0;border-radius:10px;padding:10px 14px;font-weight:600;cursor:pointer;margin:6px 6px 0 0}
-.toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:#111;color:#fff;padding:10px 16px;border-radius:10px;opacity:0;transition:.3s;pointer-events:none}
+.toast{position:fixed;left:50%;bottom:80px;transform:translateX(-50%);background:#111;color:#fff;padding:10px 16px;border-radius:10px;opacity:0;transition:.3s;pointer-events:none;z-index:9}
 .toast.show{opacity:1}
-button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+.rank{display:flex;gap:12px;align-items:flex-start}
+.pos{flex:0 0 38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;background:var(--pri2)}
+.pos.p1{background:var(--gold);color:#fff}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:6px;margin:8px 0 10px}
+.kpi div{background:var(--bg);border-radius:9px;padding:6px 8px;font-size:.75rem;color:var(--mut)}
+.kpi b{display:block;font-size:1rem;color:var(--tx)}
+.seg{display:flex;border:1px solid var(--bd);border-radius:10px;overflow:hidden;margin-bottom:10px}
+.seg button{flex:1;border:0;background:var(--card);color:var(--tx);padding:10px;font-weight:600;cursor:pointer}
+.seg button.on{background:var(--pri);color:#fff}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
 </style>
 </head>
 <body>
 <header>
   <h1>💰 RisparmioCasa</h1>
   <small id="sub">Opportunità per abbattere i costi di famiglia</small>
-  <form class="search" id="sf"><input id="q" type="search" placeholder="Cerca (es. bonus, fibra, Roma)…" aria-label="Cerca"><button type="button" id="refresh" title="Aggiorna">↻</button></form>
+  <form class="search" id="sf"><input id="q" type="search" placeholder="Cerca (es. bonus, fibra, Roma)…" aria-label="Cerca"><button type="button" id="refresh" title="Aggiorna" aria-label="Aggiorna">↻</button></form>
 </header>
 <div class="chips" id="chips"></div>
 <main id="main" aria-live="polite"></main>
 <nav>
-  <button data-v="oggi" class="on"><b>🔥</b>Oggi</button>
-  <button data-v="tutte"><b>📰</b>Tutte</button>
-  <button data-v="archivio"><b>⭐</b>Archivio</button>
-  <button data-v="fonti"><b>🏛️</b>Fonti</button>
-  <button data-v="impostazioni"><b>⚙️</b>Impostazioni</button>
+  <button type="button" data-v="oggi" class="on"><b>🔥</b>Oggi</button>
+  <button type="button" data-v="tariffe"><b>⚡</b>Tariffe</button>
+  <button type="button" data-v="tutte"><b>📰</b>Tutte</button>
+  <button type="button" data-v="archivio"><b>⭐</b>Archivio</button>
+  <button type="button" data-v="fonti"><b>🏛️</b>Fonti</button>
+  <button type="button" data-v="impostazioni"><b>⚙️</b>Opzioni</button>
 </nav>
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" role="status"></div>
 
 <script>
 const LS = {
-  get:(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},
-  set:(k,v)=>localStorage.setItem(k,JSON.stringify(v))
+  get:(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v??d}catch{return d}},
+  set:(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch{}}
 };
 const DEFAULT_CATS = {
   energia:{label:"Luce e gas",emoji:"⚡"}, fibra:{label:"Fibra e telefonia",emoji:"🌐"},
@@ -75,51 +84,45 @@ const DEFAULT_CATS = {
   ev:{label:"Auto elettriche",emoji:"🔌"}, finanziamenti:{label:"Finanziamenti",emoji:"💶"},
   salute:{label:"Sanità",emoji:"🩺"}, scuola:{label:"Scuola e infanzia",emoji:"🎒"}
 };
-// Query usate dalla "modalità diretta" (se il feed giornaliero non è disponibile)
 const LIVE_QUERIES = {
   energia:"offerte luce gas convenienti", fibra:"offerte fibra casa promo", auto:"rc auto risparmio",
   spesa:"coupon spesa supermercato", abbonamenti:"abbonamenti offerte sconto", roma:"Roma Capitale bonus famiglie",
   lazio:"Regione Lazio bonus famiglie", governo:"bonus famiglie INPS", ev:"tariffe ricarica auto elettrica",
   finanziamenti:"finanziamenti agevolati famiglie", salute:"bonus psicologo esenzione ticket", scuola:"bonus asilo nido borse di studio"
 };
+
 // Fonti ufficiali. isee = soglia massima in € (null = nessun requisito ISEE)
-// scad = prossima scadenza utile (AAAA-MM-GG) | stato: "aperto" | "chiuso" | "attesa" | "automatico" | "permanente"
+// scad = prossima scadenza utile (AAAA-MM-GG) | stato: aperto | chiuso | attesa | automatico | permanente
 // Verificate il 13/11/2026: controllare sempre la pagina ufficiale prima di presentare domanda.
 const SOURCES = [
-  // ---- SANITÀ ----
   {t:"Bonus psicologo – INPS (fino a 1.500 €, 50 € a seduta)",u:"https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.contributo-per-sostenere-le-spese-relative-a-sessioni-di-psicoterapia-bonus-psicologo.html",ente:"Governo",area:"Sanità",isee:50000,stato:"attesa",nota:"Finestra 2026 non ancora pubblicata; nel 2025 era 15/09–14/11. Prepara l'ISEE."},
   {t:"Esenzione ticket per reddito E01–E04 – ASL Roma 1",u:"https://www.aslroma1.it/esenzione-ticket-per-reddito",ente:"Lazio",area:"Sanità",isee:null,stato:"automatico",nota:"Basata sul reddito familiare, non sull'ISEE: E01 <6 o >65 anni con reddito <36.151,98 €. E01/E03/E04 rinnovo automatico dal 1° aprile; E02 da rinnovare ogni anno."},
-  {t:"Salute Lazio – Esenzioni e autocertificazione reddito (Fascicolo Sanitario)",u:"https://salutelazio.it/it/servizi/esenzioni",ente:"Lazio",area:"Sanità",isee:null,stato:"permanente",nota:"Richiesta online con SPID/CIE; tesserino scaricabile dal FSE."},
+  {t:"Salute Lazio – Esenzioni e autocertificazione reddito",u:"https://salutelazio.it/it/servizi/esenzioni",ente:"Lazio",area:"Sanità",isee:null,stato:"permanente",nota:"Richiesta online con SPID/CIE; tesserino scaricabile dal FSE."},
   {t:"Salute Lazio – Elenco codici di esenzione",u:"https://salutelazio.it/it/servizi/elenco-esenzioni",ente:"Lazio",area:"Sanità",isee:null,stato:"permanente",nota:"Esenzioni per patologia, invalidità, gravidanza e reddito."},
   {t:"ASL Roma 1 – Moduli autocertificazione esenzioni",u:"https://www.aslroma1.it/esenzioni",ente:"Lazio",area:"Sanità",isee:null,stato:"permanente",nota:"Moduli E01–E04, E05, E06, E10."},
-  // ---- SCUOLA E INFANZIA ----
   {t:"Bonus asilo nido – INPS (fino a 3.600 €/anno)",u:"https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.bonus-asilo-nido-e-forme-di-supporto-presso-la-propria-abitazione-51105.bonus-asilo-nido-e-forme-di-supporto-presso-la-propria-abitazione.html",ente:"Governo",area:"Scuola",isee:40000,scad:"2027-04-30",stato:"aperto",nota:"Senza ISEE o sopra soglia spettano comunque 1.500 €. Ricevute dei mesi 2026 da caricare entro il 30/04/2027."},
-  {t:"INPS – Bonus nido 2026: istruzioni (domanda valida fino ai 3 anni)",u:"https://www.inps.it/it/it/inps-comunica/notizie/dettaglio-news-page.news.2026.03.bonus-asilo-nido-2026-attivo-il-servizio-per-la-domanda.html",ente:"Governo",area:"Scuola",isee:40000,scad:"2027-04-30",stato:"aperto",nota:"Circolare INPS 29/2026."},
-  {t:"Carta della Cultura Giovani e Carta del Merito – MiC (500 € + 500 €)",u:"https://cartegiovani.cultura.gov.it/",ente:"Governo",area:"Scuola",isee:35000,scad:"2026-12-31",stato:"chiuso",nota:"Domande chiuse il 30/06/2026; i buoni già ottenuti vanno spesi entro il 31/12/2026. La soglia ISEE vale solo per la Carta Cultura."},
+  {t:"INPS – Bonus nido 2026: istruzioni",u:"https://www.inps.it/it/it/inps-comunica/notizie/dettaglio-news-page.news.2026.03.bonus-asilo-nido-2026-attivo-il-servizio-per-la-domanda.html",ente:"Governo",area:"Scuola",isee:40000,scad:"2027-04-30",stato:"aperto",nota:"Circolare INPS 29/2026."},
+  {t:"Carta della Cultura Giovani e Carta del Merito – MiC",u:"https://cartegiovani.cultura.gov.it/",ente:"Governo",area:"Scuola",isee:35000,scad:"2026-12-31",stato:"chiuso",nota:"Domande chiuse il 30/06/2026; i buoni già ottenuti vanno spesi entro il 31/12/2026. La soglia ISEE vale solo per la Carta Cultura."},
   {t:"Cedole librarie scuola primaria – Roma Capitale",u:"https://www.comune.roma.it/web/it/scheda-servizi.page?contentId=INF38298",ente:"Roma",area:"Scuola",isee:null,scad:"2027-02-01",stato:"aperto",nota:"Libri gratuiti. Chi acquista fuori Roma può chiedere il rimborso entro l'01/02/2027."},
   {t:"Borse di studio IoStudio – Roma Capitale (domanda)",u:"https://www.comune.roma.it/web/it/scheda-servizi.page?contentId=INF575036&pagina=4",ente:"Roma",area:"Scuola",isee:15748.78,stato:"attesa",nota:"Superiori. Domanda online nei termini dell'avviso annuale."},
-  {t:"Borse IoStudio 2025/26 – Regione Lazio (207,12 €, in pagamento)",u:"https://www.regione.lazio.it/notizie/scuola-universita/riscossione-borse-studio-io-studio-2025-2026",ente:"Lazio",area:"Scuola",isee:15748.78,stato:"aperto",nota:"Riscossione presso qualsiasi ufficio postale (Postepay Borsa di Studio)."},
-  {t:"Libri di testo gratuiti o semigratuiti – Regione Lazio",u:"https://www.regione.lazio.it/cittadini/scuola-universita/diritto-allo-studio/libri-testo-gratuiti",ente:"Lazio",area:"Scuola",isee:15493.71,stato:"attesa",nota:"Medie e superiori. Fondi 2026/27 ripartiti ai Comuni: la domanda si fa al proprio Comune."},
+  {t:"Borse IoStudio 2025/26 – Regione Lazio (207,12 €)",u:"https://www.regione.lazio.it/notizie/scuola-universita/riscossione-borse-studio-io-studio-2025-2026",ente:"Lazio",area:"Scuola",isee:15748.78,stato:"aperto",nota:"Riscossione presso qualsiasi ufficio postale."},
+  {t:"Libri di testo gratuiti o semigratuiti – Regione Lazio",u:"https://www.regione.lazio.it/cittadini/scuola-universita/diritto-allo-studio/libri-testo-gratuiti",ente:"Lazio",area:"Scuola",isee:15493.71,stato:"attesa",nota:"Medie e superiori. La domanda si fa al proprio Comune."},
   {t:"SICED – Piattaforma regionale libri di testo e borse",u:"https://siced.regione.lazio.it/",ente:"Lazio",area:"Scuola",isee:null,stato:"permanente",nota:"Avvisi e linee guida annuali."},
-  {t:"Nido Roma Capitale – pagamenti e riepiloghi per il Bonus Nido INPS",u:"https://www.comune.roma.it/web/it/scheda-servizi.page?contentId=INF110739",ente:"Roma",area:"Scuola",isee:null,stato:"permanente",nota:"Servono per allegare le ricevute alla domanda INPS."},
-  // ---- CASA E TRIBUTI ----
+  {t:"Nido Roma Capitale – pagamenti per il Bonus Nido INPS",u:"https://www.comune.roma.it/web/it/scheda-servizi.page?contentId=INF110739",ente:"Roma",area:"Scuola",isee:null,stato:"permanente",nota:"Ricevute da allegare alla domanda INPS."},
   {t:"Esenzione TARI totale – AMA",u:"https://www.amaroma.it/it/tari/esenzioni",ente:"Roma",area:"Casa",isee:6500,scad:"2027-02-28",stato:"aperto",nota:"Domanda online entro il 28 febbraio dell'anno di riferimento."},
-  {t:"Bonus sociale TARI –25% – Roma Capitale",u:"https://www.comune.roma.it/web/it/scheda-servizi.page?contentId=INF1407399",ente:"Roma",area:"Casa",isee:9796,stato:"automatico",nota:"Automatico con DSU/ISEE valido; fino a 20.000 € con almeno 4 figli."},
-  {t:"Contributo affitto GECOA – Roma Capitale",u:"https://www.comune.roma.it/web/it/scheda-servizi.page?contentId=INF1591853",ente:"Roma",area:"Casa",isee:14000,stato:"chiuso",nota:"Ultima finestra 25/05–24/07/2026. Requisito: affitto oltre il 24% dell'ISEE. Monitora la prossima edizione."},
+  {t:"Bonus sociale TARI –25% – Roma Capitale",u:"https://www.comune.roma.it/web/it/scheda-servizi.page?contentId=INF1407399",ente:"Roma",area:"Casa",isee:9796,stato:"automatico",nota:"Automatico con ISEE valido; fino a 20.000 € con almeno 4 figli."},
+  {t:"Contributo affitto GECOA – Roma Capitale",u:"https://www.comune.roma.it/web/it/scheda-servizi.page?contentId=INF1591853",ente:"Roma",area:"Casa",isee:14000,stato:"chiuso",nota:"Ultima finestra 25/05–24/07/2026. Affitto oltre il 24% dell'ISEE."},
   {t:"Contributo integrativo canone di locazione – Roma Capitale",u:"https://www.comune.roma.it/web/it/scheda-servizi.page?contentId=INF209308",ente:"Roma",area:"Casa",isee:null,stato:"attesa",nota:"Scheda generale ed elenchi degli ammessi."},
   {t:"Contributo affitto genitori e famiglie numerose – Roma Capitale",u:"https://www.comune.roma.it/web/it/scheda-servizi.page?contentId=INF1271477",ente:"Roma",area:"Casa",isee:null,stato:"chiuso",nota:"Seguire per eventuali riaperture."},
   {t:"ASAC – Agenzia Sociale per l'Abitare",u:"https://asac.comune.roma.it/",ente:"Roma",area:"Casa",isee:null,stato:"permanente",nota:"Orientamento su contributi e bandi casa."},
-  {t:"Sostegno economico Municipi – Servizi sociali",u:"https://www.comune.roma.it/web/it/scheda-servizi.page?contentId=INF37577",ente:"Roma",area:"Famiglia",isee:null,stato:"permanente",nota:"Per gravi difficoltà socio-economiche, tramite l'assistente sociale."},
-  // ---- FAMIGLIA ----
-  {t:"Assegno unico e universale – INPS",u:"https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-unico-e-universale-per-i-figli-a-carico-55984.assegno-unico-e-universale-per-i-figli-a-carico.html",ente:"Governo",area:"Famiglia",isee:46582.71,stato:"permanente",nota:"Spetta anche senza ISEE (importo minimo). La soglia indicata è quella oltre la quale l'importo è minimo (2026). Rinnova l'ISEE a gennaio."},
-  {t:"INPS – Strumenti per le famiglie (Portale della Famiglia)",u:"https://www.inps.it/it/it/inps-comunica/inps--inclusione-e-innovazione/i-progetti-per-i-cittadini/famiglie.html",ente:"Governo",area:"Famiglia",isee:null,stato:"permanente",nota:"Segnala le prestazioni a cui potresti avere diritto."},
   {t:"Bonus sociale bollette – ARERA",u:"https://www.arera.it/consumatori/bonus-sociale",ente:"Governo",area:"Casa",isee:null,stato:"automatico",nota:"Automatico con ISEE valido: verifica la soglia aggiornata sul sito ARERA."},
-  // ---- TRASPORTI E GIOVANI ----
+  {t:"Sostegno economico Municipi – Servizi sociali",u:"https://www.comune.roma.it/web/it/scheda-servizi.page?contentId=INF37577",ente:"Roma",area:"Famiglia",isee:null,stato:"permanente",nota:"Per gravi difficoltà socio-economiche, tramite l'assistente sociale."},
+  {t:"Assegno unico e universale – INPS",u:"https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.assegno-unico-e-universale-per-i-figli-a-carico-55984.assegno-unico-e-universale-per-i-figli-a-carico.html",ente:"Governo",area:"Famiglia",isee:46582.71,stato:"permanente",nota:"Spetta anche senza ISEE (importo minimo). La soglia indicata è quella oltre la quale l'importo è minimo (2026)."},
+  {t:"INPS – Strumenti per le famiglie (Portale della Famiglia)",u:"https://www.inps.it/it/it/inps-comunica/inps--inclusione-e-innovazione/i-progetti-per-i-cittadini/famiglie.html",ente:"Governo",area:"Famiglia",isee:null,stato:"permanente",nota:"Segnala le prestazioni a cui potresti avere diritto."},
+  {t:"BellaXNoi – Carta giovani 14-29 anni",u:"https://www.regione.lazio.it/notizie/bellaxnoi-nuova-carta-giovani",ente:"Lazio",area:"Famiglia",isee:null,stato:"permanente",nota:"Sconti e voucher per cultura e sport, tramite app con SPID/CIE."},
   {t:"ATAC – Abbonamento annuale agevolato giovani/studenti",u:"https://www.atac.roma.it/biglietti-e-abbonamenti/giovani-e-studenti",ente:"Roma",area:"Trasporti",isee:20000,stato:"permanente",nota:"Residenti a Roma: fino a 20 anni, oppure universitari fino a 26."},
   {t:"SIRGAT – Agevolazioni tariffarie trasporto pubblico",u:"https://agevolazionitariffarietpl.regione.lazio.it/",ente:"Lazio",area:"Trasporti",isee:null,stato:"permanente",nota:"Agevolazioni con e senza limiti di reddito (Metrebus, UdR)."},
-  {t:"Trasporti gratis sulle Unità di Rete: over 70 e studenti under 26",u:"https://www.regione.lazio.it/notizie/trasporti-over-70-e-studenti-under-26-viaggiano-gratis-sulle-unita-di-rete",ente:"Lazio",area:"Trasporti",isee:null,stato:"aperto",nota:"Anno scolastico 2026/27; per gli studenti serve l'abbonamento Metrebus Lazio Studenti."},
-  {t:"BellaXNoi – Carta giovani 14-29 anni",u:"https://www.regione.lazio.it/notizie/bellaxnoi-nuova-carta-giovani",ente:"Lazio",area:"Famiglia",isee:null,stato:"permanente",nota:"Sconti e voucher per cultura e sport, tramite app con SPID/CIE."},
-  // ---- PORTALI GENERALI ----
+  {t:"Trasporti gratis UdR: over 70 e studenti under 26",u:"https://www.regione.lazio.it/notizie/trasporti-over-70-e-studenti-under-26-viaggiano-gratis-sulle-unita-di-rete",ente:"Lazio",area:"Trasporti",isee:null,stato:"aperto",nota:"Anno scolastico 2026/27."},
   {t:"Incentivi Italia – Catalogo unico con notifiche",u:"https://www.incentivitalia.gov.it/",ente:"Governo",area:"Portali",isee:null,stato:"permanente",nota:""},
   {t:"Incentivi.gov.it – Calendario incentivi",u:"https://www.incentivi.gov.it/it",ente:"Governo",area:"Portali",isee:null,stato:"permanente",nota:""},
   {t:"Agenzia delle Entrate – Agevolazioni",u:"https://www.agenziaentrate.gov.it/portale/cittadini/agevolazioni",ente:"Governo",area:"Portali",isee:null,stato:"permanente",nota:"Detrazioni (anche il 19% sulle spese sanitarie)."},
@@ -127,25 +130,31 @@ const SOURCES = [
   {t:"LazioEuropa – Bandi aperti e in arrivo",u:"https://www.lazioeuropa.it/bandi/",ente:"Lazio",area:"Portali",isee:null,stato:"permanente",nota:""},
   {t:"Regione Lazio – Sociale e famiglie: bandi e avvisi",u:"https://www.regione.lazio.it/cittadini/sociale-famiglie/bandi-avvisi-e-interventi-por-fse",ente:"Lazio",area:"Portali",isee:null,stato:"permanente",nota:""},
   {t:"Roma Capitale – Portale e Servizi online",u:"https://www.comune.roma.it",ente:"Roma",area:"Portali",isee:null,stato:"permanente",nota:""},
-  {t:"Portale Offerte ARERA",u:"https://www.ilportaleofferte.it",ente:"Governo",area:"Portali",isee:null,stato:"permanente",nota:"Confronto delle tariffe luce e gas."},
   {t:"IVASS – Preventivatore RC auto",u:"https://www.preventivass.it",ente:"Governo",area:"Portali",isee:null,stato:"permanente",nota:""}
 ];
 const STATO={aperto:["🟢","Aperto"],chiuso:["🔴","Chiuso"],attesa:["🟡","In attesa di riapertura"],automatico:["⚙️","Automatico"],permanente:["🔵","Sempre attivo"]};
 const AREE=["Tutte","Sanità","Scuola","Casa","Famiglia","Trasporti","Portali"];
 const AREA_EMOJI={"Tutte":"✨","Sanità":"🩺","Scuola":"🎒","Casa":"🏠","Famiglia":"👨‍👩‍👧","Trasporti":"🚌","Portali":"🌐"};
 const STATI=["tutti","aperto","attesa","automatico","permanente","chiuso"];
+const PORTALE="https://www.ilportaleofferte.it/portaleOfferte/";
 
 const state = {
   view:"oggi", cat:"tutte", q:"",
   feed: LS.get("rc_feed",{items:[],categories:DEFAULT_CATS,updated:null}),
+  energia: LS.get("rc_energia",null),
   saved: LS.get("rc_saved",[]),
   lastSeen: LS.get("rc_lastSeen",null),
-  settings: LS.get("rc_settings",{feedUrl:"data/feed.json",proxy:"https://api.allorigins.win/raw?url=",notify:false})
+  settings: Object.assign({feedUrl:"data/feed.json",proxy:"https://api.allorigins.win/raw?url=",notify:false},LS.get("rc_settings",{}))
 };
+const tState = Object.assign({tipo:"luce",kwh:"2700",smc:"1400"},LS.get("rc_tariffe",{}));
+const fState = Object.assign({sort:"scadenza",area:"Tutte",stato:"tutti",isee:""},LS.get("rc_fonti",{}));
+
 const $ = s=>document.querySelector(s);
 const esc = s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const cats = ()=>Object.assign({},DEFAULT_CATS,state.feed.categories||{});
 const fmt = d=>{try{return new Date(d).toLocaleDateString("it-IT",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"})}catch{return ""}};
+const euro=(n,d=2)=>Number(n).toLocaleString("it-IT",{minimumFractionDigits:d,maximumFractionDigits:d})+" €";
+const safeUrl=u=>/^https?:\/\//i.test(u||"")?u:(u?"https://"+u:PORTALE);
 function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),2200)}
 
 async function loadFeed(){
@@ -155,15 +164,19 @@ async function loadFeed(){
     const r=await fetch(state.settings.feedUrl+"?t="+Date.now(),{cache:"no-store"});
     if(r.ok){const j=await r.json(); if(j.items){state.feed=j; ok=true}}
   }catch(e){}
+  try{
+    const r=await fetch("data/energia.json?t="+Date.now(),{cache:"no-store"});
+    if(r.ok){state.energia=await r.json();LS.set("rc_energia",state.energia)}
+  }catch(e){}
   if(!ok){ ok = await liveScan(); }
   if(ok){LS.set("rc_feed",state.feed); checkNew();}
-  $("#sub").textContent = state.feed.updated ? "Aggiornato: "+fmt(state.feed.updated) : "Nessun dato: controlla Impostazioni";
+  $("#sub").textContent = state.feed.updated ? "Aggiornato: "+fmt(state.feed.updated) : "Nessun dato: controlla Opzioni";
   render();
 }
 
-// Modalità diretta: interroga Google News RSS tramite proxy CORS
 async function liveScan(){
   const items=[]; const seen=new Set();
+  if(!state.settings.proxy) return false;
   await Promise.all(Object.entries(LIVE_QUERIES).map(async([cat,q])=>{
     try{
       const u="https://news.google.com/rss/search?q="+encodeURIComponent(q+" when:2d")+"&hl=it&gl=IT&ceid=IT:it";
@@ -187,7 +200,7 @@ async function liveScan(){
 
 function checkNew(){
   const last=state.lastSeen; const nuove=state.feed.items.filter(i=>!last||i.found>last);
-  if(last && nuove.length && state.settings.notify && Notification.permission==="granted"){
+  if(last && nuove.length && state.settings.notify && "Notification" in window && Notification.permission==="granted"){
     navigator.serviceWorker?.ready.then(reg=>reg.showNotification("RisparmioCasa",{
       body:nuove.length+" nuove opportunità di risparmio",icon:"icons/icon-192.png",tag:"rc-daily"}));
   }
@@ -213,14 +226,14 @@ function filtered(list){
     (!q||(i.title+" "+(i.summary||"")+" "+(i.source||"")+" "+(i.note||"")).toLowerCase().includes(q)));
 }
 function card(i,inArchive){
-  const c=cats()[i.category]||{label:i.category,emoji:"•"};
+  const c=cats()[i.category]||{label:i.category||"Altro",emoji:"•"};
   const isNew=state.lastSeen&&i.found>state.lastSeen&&!inArchive;
   return `<article class="card" data-id="${esc(i.id)}">
     <div class="meta"><span class="badge">${c.emoji} ${esc(c.label)}</span>${isNew?'<span class="new">NUOVO</span>':""}
       <span>${esc(i.source||"")}</span><span>${fmt(i.published)}</span></div>
     <h3>${esc(i.title)}</h3>${i.summary?`<p>${esc(i.summary)}</p>`:""}
     <div class="acts">
-      <a href="${esc(i.link)}" target="_blank" rel="noopener">🔗 Apri</a>
+      <a href="${esc(safeUrl(i.link))}" target="_blank" rel="noopener">🔗 Apri</a>
       <button type="button" data-a="save" class="${isSaved(i.id)?"saved":""}">${isSaved(i.id)?"★ Salvato":"☆ Salva"}</button>
       <button type="button" data-a="share">📤 Condividi</button>
       <button type="button" data-a="wa">💬 WhatsApp</button>
@@ -229,19 +242,114 @@ function card(i,inArchive){
   </article>`;
 }
 
+/* ---------- TARIFFE LUCE E GAS (Portale Offerte ARERA) ---------- */
+function allItems(){return [...state.feed.items,...state.saved,...tariffaItems()]}
+let _tItems=[];
+function tariffaItems(){return _tItems}
+function renderTariffe(){
+  const e=state.energia, tipo=tState.tipo, isLuce=tipo==="luce", un=isLuce?"kWh":"Smc";
+  const consumoRaw=isLuce?tState.kwh:tState.smc;
+  let consumo=parseFloat(String(consumoRaw).replace(",","."));
+  const valid=!isNaN(consumo)&&consumo>0&&consumo<=100000;
+  if(!valid) consumo=isLuce?2700:1400;
+  const d=e&&e[tipo];
+  let body;
+  if(!e){
+    body=`<div class="card empty">Classifica non ancora disponibile.<br>Avvia la scansione da GitHub Actions oppure tocca ↻.</div>`;
+  } else if(!d||!(d.candidati||d.top||[]).length){
+    body=`<div class="card empty">Nessuna offerta disponibile oggi.<br><small>${esc(d&&d.errore||"")}</small></div>`;
+  } else {
+    const list=(d.candidati&&d.candidati.length?d.candidati:d.top).map(o=>({...o,stima:o.prezzo*consumo+o.fisso_anno}))
+      .sort((a,b)=>a.stima-b.stima).slice(0,3);
+    _tItems=list.map((o,i)=>({id:"t_"+tipo+"_"+(o.codice||o.offerta)+"_"+i,title:`${isLuce?"⚡":"🔥"} ${o.offerta} – ${o.fornitore}: ${o.prezzo.toFixed(4).replace(".",",")} €/${un} fisso`,
+      link:safeUrl(o.url),source:"Portale Offerte ARERA",category:"energia",published:d.data_file||e.aggiornato,found:new Date().toISOString(),
+      summary:`Quota fissa ${euro(o.fisso_anno)}/anno · stima parte fornitore ${euro(o.stima,0)}/anno per ${consumo} ${un}`}));
+    const diff=list.length>1?list[list.length-1].stima-list[0].stima:0;
+    body=list.map((o,i)=>`<article class="card" data-id="${esc(_tItems[i].id)}"><div class="rank">
+      <div class="pos ${i===0?"p1":""}">${i+1}</div><div style="flex:1;min-width:0">
+      <div class="meta"><span class="badge">🔒 Prezzo fisso${o.durata_mesi?" "+o.durata_mesi+" mesi":""}</span>${o.una_tantum>0?`<span class="badge">Una tantum ${euro(o.una_tantum)}</span>`:""}</div>
+      <h3 style="margin-top:6px">${esc(o.fornitore)}</h3><p style="margin:0">${esc(o.offerta)}${o.codice?` · cod. ${esc(o.codice)}`:""}</p>
+      <div class="kpi"><div>Prezzo ${isLuce?"energia":"gas"}<b>${o.prezzo.toFixed(4).replace(".",",")} €/${un}</b></div>
+        <div>Quota fissa<b>${euro(o.fisso_anno)}/anno</b></div>
+        <div>Spesa fornitore stimata<b>${euro(o.stima,0)}/anno</b></div></div>
+      <div class="acts"><a href="${esc(safeUrl(o.url))}" target="_blank" rel="noopener">🔗 Vai all'offerta</a>
+        <button type="button" data-a="save" class="${isSaved(_tItems[i].id)?"saved":""}">${isSaved(_tItems[i].id)?"★ Salvato":"☆ Salva"}</button>
+        <button type="button" data-a="share">📤 Condividi</button><button type="button" data-a="wa">💬 WhatsApp</button></div>
+      </div></div></article>`).join("")
+      + `<p class="status">${diff>0?`Tra la 1ª e la 3ª offerta ci sono ${euro(diff,0)}/anno di differenza. `:""}Analizzate ${d.offerte_valide??"–"} offerte valide (file ARERA del ${d.data_file?new Date(d.data_file).toLocaleDateString("it-IT"):"–"}).</p>`;
+  }
+  $("#main").innerHTML=`<div class="seg" role="group" aria-label="Tipo fornitura">
+      <button type="button" data-t="luce" class="${isLuce?"on":""}" aria-pressed="${isLuce}">⚡ Luce</button>
+      <button type="button" data-t="gas" class="${!isLuce?"on":""}" aria-pressed="${!isLuce}">🔥 Gas</button></div>
+    <div class="card"><label class="row" style="border:0">Il mio consumo annuo (${un})
+      <input id="tCons" inputmode="decimal" value="${esc(consumoRaw)}" style="width:110px;padding:8px" aria-describedby="tHelp"></label>
+      <p class="status" id="tHelp" style="margin:0">${valid?`Lo trovi in bolletta alla voce "consumo annuo". Classifica ricalcolata su ${consumo.toLocaleString("it-IT")} ${un}.`:`⚠️ Valore non valido: uso il profilo standard (${consumo} ${un}).`}</p></div>
+    <p class="status"><b>Top 3 fornitori a prezzo fisso più basso</b> · clienti domestici, disponibili a Roma, senza condizioni limitanti · un'offerta per fornitore.</p>
+    ${body}
+    <div class="card"><p style="margin:0">ℹ️ La stima comprende solo la parte del fornitore (prezzo dell'energia × consumo + quota fissa di vendita). Rete, oneri e imposte sono uguali per tutti e non cambiano la classifica. Prima di firmare controlla la <b>scheda sintetica</b> e verifica sul
+    <a href="${PORTALE}" target="_blank" rel="noopener" style="color:var(--pri)">Portale Offerte ARERA ↗</a>.</p></div>`;
+}
+
+/* ---------- FONTI ---------- */
+function daysTo(d){return Math.ceil((new Date(d+"T23:59:59")-new Date())/864e5)}
+function renderFonti(){
+  const my=parseFloat(String(fState.isee).replace(/\./g,"").replace(",","."));
+  const hasIsee=!isNaN(my)&&my>=0;
+  const okIsee=s=>!hasIsee||s.isee==null||my<=s.isee;
+  const okArea=s=>fState.area==="Tutte"||s.area===fState.area;
+  const okStato=s=>fState.stato==="tutti"||s.stato===fState.stato;
+  const cntArea=a=>SOURCES.filter(s=>okIsee(s)&&okStato(s)&&(a==="Tutte"||s.area===a)).length;
+  const cntStato=st=>SOURCES.filter(s=>okIsee(s)&&okArea(s)&&(st==="tutti"||s.stato===st)).length;
+  let list=SOURCES.filter(s=>okIsee(s)&&okArea(s)&&okStato(s));
+  const active=fState.area!=="Tutte"||fState.stato!=="tutti"||hasIsee;
+  const rank=s=>{ if(s.scad&&daysTo(s.scad)>=0&&s.stato!=="chiuso") return daysTo(s.scad);
+    return {aperto:5000,attesa:6000,chiuso:6500,automatico:7000,permanente:8000}[s.stato]||9000; };
+  if(fState.sort==="scadenza") list.sort((a,b)=>rank(a)-rank(b)||(a.isee??1e9)-(b.isee??1e9));
+  else if(fState.sort==="isee") list.sort((a,b)=>(a.isee??1e9)-(b.isee??1e9));
+  else list.sort((a,b)=>a.ente.localeCompare(b.ente)||a.area.localeCompare(b.area));
+  const scard=s=>{
+    const st=STATO[s.stato]||["",""];
+    let sc="";
+    if(s.scad){const d=daysTo(s.scad);const dt=new Date(s.scad).toLocaleDateString("it-IT");
+      sc=d<0?`<span class="badge">⌛ scaduto ${dt}</span>`:`<span class="${d<=60?"new":"badge"}">⏰ ${dt} · ${d} gg</span>`;}
+    const is=s.isee==null?`<span class="badge">Nessun limite ISEE</span>`:`<span class="badge">ISEE ≤ ${euro(s.isee,0)}</span>`;
+    return `<article class="card"><div class="meta"><span class="badge">${st[0]} ${st[1]}</span>${sc}${is}<span>${esc(s.ente)} · ${esc(s.area)}</span></div>
+      <h3><a href="${s.u}" target="_blank" rel="noopener" style="color:var(--pri);text-decoration:none">${esc(s.t)} ↗</a></h3>${s.nota?`<p>${esc(s.nota)}</p>`:""}
+      <div class="acts"><button type="button" data-fs="${esc(s.u)}">📤 Condividi</button></div></article>`;
+  };
+  $("#main").innerHTML=`<div class="card">
+    <label class="row">Il mio ISEE (€)<input id="fIsee" inputmode="decimal" placeholder="es. 18000" value="${esc(fState.isee)}" style="width:130px;padding:8px"></label>
+    <label class="row">Ordina per<select id="fSort" style="padding:8px">
+      <option value="scadenza"${fState.sort==="scadenza"?" selected":""}>Scadenza più vicina</option>
+      <option value="isee"${fState.sort==="isee"?" selected":""}>Soglia ISEE crescente</option>
+      <option value="ente"${fState.sort==="ente"?" selected":""}>Ente (Roma / Lazio / Governo)</option></select></label>
+    <p class="status" style="margin:12px 0 0"><b>Categoria</b></p>
+    <div class="chips" style="padding:6px 0 0;border:0" role="group" aria-label="Filtra per categoria">${AREE.map(a=>`<button type="button" class="chip ${fState.area===a?"on":""}" data-fa="${a}" aria-pressed="${fState.area===a}">${AREA_EMOJI[a]} ${a} (${cntArea(a)})</button>`).join("")}</div>
+    <p class="status" style="margin:12px 0 0"><b>Stato della domanda</b></p>
+    <div class="chips" style="padding:6px 0 0;border:0" role="group" aria-label="Filtra per stato">${STATI.map(st=>{const lb=st==="tutti"?["✨","Tutti"]:STATO[st];return `<button type="button" class="chip ${fState.stato===st?"on":""}" data-fst="${st}" aria-pressed="${fState.stato===st}">${lb[0]} ${lb[1]} (${cntStato(st)})</button>`}).join("")}</div>
+    ${active?`<button type="button" class="btn" id="fReset" style="margin-top:10px">✖ Azzera filtri</button>`:""}
+    <p class="status" style="margin-top:8px">${list.length} fonti${hasIsee?" compatibili con il tuo ISEE":""} · verificate il 13/11/2026. Controlla sempre la pagina ufficiale prima di fare domanda.</p></div>`
+    + (list.length?list.map(scard).join(""):`<div class="empty">Nessuna fonte per questi filtri.</div>`);
+}
+
+/* ---------- RENDER ---------- */
 function renderChips(){
+  const hide=["fonti","impostazioni","tariffe"].includes(state.view);
+  $("#chips").style.display=hide?"none":"flex";
+  $(".search").style.display=hide?"none":"flex";
+  if(hide) return;
   const all=[["tutte",{label:"Tutte",emoji:"✨"}],...Object.entries(cats())];
-  $("#chips").style.display=(state.view==="fonti"||state.view==="impostazioni")?"none":"flex";
   $("#chips").innerHTML=all.map(([k,c])=>`<button type="button" class="chip ${state.cat===k?"on":""}" data-c="${k}">${c.emoji} ${esc(c.label)}</button>`).join("");
 }
 function render(){
   renderChips(); const m=$("#main");
   if(state.view==="fonti"){ renderFonti(); return; }
+  if(state.view==="tariffe"){ renderTariffe(); return; }
   if(state.view==="impostazioni"){
     const s=state.settings;
     m.innerHTML=`<div class="card">
       <label class="row">Notifiche quando apri l'app e ci sono novità<input type="checkbox" id="notif" ${s.notify?"checked":""}></label>
-      <p class="status">Per le notifiche push giornaliere anche ad app chiusa usa <b>ntfy</b> o <b>Telegram</b> (vedi README).</p>
+      <p class="status">Per le notifiche giornaliere anche ad app chiusa usa <b>ntfy</b> o <b>Telegram</b> (vedi README).</p>
       <label class="row" style="display:block">URL del feed giornaliero<input id="feedUrl" value="${esc(s.feedUrl)}" style="width:100%;margin-top:6px;padding:8px"></label>
       <label class="row" style="display:block">Proxy per modalità diretta<input id="proxy" value="${esc(s.proxy)}" style="width:100%;margin-top:6px;padding:8px"></label>
       <button class="btn" type="button" id="saveSet">Salva impostazioni</button>
@@ -264,7 +372,7 @@ function render(){
     `<div class="empty">${state.view==="archivio"?"Nessun elemento salvato.<br>Tocca ☆ Salva su una notizia.":"Nessuna opportunità trovata.<br>Tocca ↻ per aggiornare."}</div>`);
 }
 
-// Eventi
+/* ---------- EVENTI ---------- */
 document.querySelector("nav").addEventListener("click",e=>{
   const b=e.target.closest("button");if(!b)return;
   if(state.view==="oggi"||state.view==="tutte") markSeen();
@@ -274,21 +382,24 @@ $("#chips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(b)
 $("#sf").addEventListener("submit",e=>e.preventDefault());
 $("#q").addEventListener("input",e=>{state.q=e.target.value;render()});
 $("#refresh").addEventListener("click",loadFeed);
+
 $("#main").addEventListener("click",async e=>{
-  const b=e.target.closest("button[data-a]");if(!b)return;
-  const id=b.closest(".card").dataset.id;
-  const item=state.feed.items.find(i=>i.id===id)||state.saved.find(i=>i.id===id);if(!item)return;
-  if(b.dataset.a==="save")toggleSave(item);
-  if(b.dataset.a==="share")share(item);
-  if(b.dataset.a==="wa")window.open("https://wa.me/?text="+encodeURIComponent("💰 "+item.title+"\n"+item.link),"_blank");
-});
-$("#main").addEventListener("input",e=>{
-  if(e.target.dataset.a!=="note")return;
-  const id=e.target.closest(".card").dataset.id;const s=state.saved.find(x=>x.id===id);
-  if(s){s.note=e.target.value;LS.set("rc_saved",state.saved)}
-});
-$("#main").addEventListener("click",async e=>{
-  if(e.target.id==="saveSet"){
+  const t=e.target;
+  const seg=t.closest("[data-t]"); if(seg){tState.tipo=seg.dataset.t;LS.set("rc_tariffe",tState);renderTariffe();return;}
+  const fa=t.closest("[data-fa]"); if(fa){fState.area=fa.dataset.fa;LS.set("rc_fonti",fState);renderFonti();return;}
+  const fst=t.closest("[data-fst]"); if(fst){fState.stato=fst.dataset.fst;LS.set("rc_fonti",fState);renderFonti();return;}
+  if(t.id==="fReset"){Object.assign(fState,{area:"Tutte",stato:"tutti",isee:""});LS.set("rc_fonti",fState);renderFonti();return;}
+  const fs=t.closest("[data-fs]"); if(fs){const src=SOURCES.find(x=>x.u===fs.dataset.fs);if(src)share({title:src.t,link:src.u,source:src.ente});return;}
+  const b=t.closest("button[data-a]");
+  if(b){
+    const id=b.closest(".card").dataset.id;
+    const item=allItems().find(i=>i.id===id);if(!item)return;
+    if(b.dataset.a==="save")toggleSave(item);
+    if(b.dataset.a==="share")share(item);
+    if(b.dataset.a==="wa")window.open("https://wa.me/?text="+encodeURIComponent("💰 "+item.title+"\n"+item.link),"_blank");
+    return;
+  }
+  if(t.id==="saveSet"){
     state.settings.feedUrl=$("#feedUrl").value.trim()||"data/feed.json";
     state.settings.proxy=$("#proxy").value.trim();
     state.settings.notify=$("#notif").checked;
@@ -299,76 +410,30 @@ $("#main").addEventListener("click",async e=>{
     }
     LS.set("rc_settings",state.settings);toast("Impostazioni salvate");render();
   }
-  if(e.target.id==="exp"){
+  if(t.id==="exp"){
     const blob=new Blob([JSON.stringify(state.saved,null,1)],{type:"application/json"});
     const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="archivio-risparmiocasa.json";a.click();
   }
-  if(e.target.id==="imp")$("#impFile").click();
+  if(t.id==="imp")$("#impFile").click();
+});
+let _deb;
+function refocus(id){const i=$("#"+id);if(i){i.focus();const n=i.value.length;try{i.setSelectionRange(n,n)}catch{}}}
+$("#main").addEventListener("input",e=>{
+  const t=e.target;
+  if(t.dataset.a==="note"){
+    const id=t.closest(".card").dataset.id;const s=state.saved.find(x=>x.id===id);
+    if(s){s.note=t.value;LS.set("rc_saved",state.saved)}
+  }
+  if(t.id==="fIsee"){fState.isee=t.value;LS.set("rc_fonti",fState);clearTimeout(_deb);_deb=setTimeout(()=>{renderFonti();refocus("fIsee")},600);}
+  if(t.id==="tCons"){tState[tState.tipo==="luce"?"kwh":"smc"]=t.value;LS.set("rc_tariffe",tState);clearTimeout(_deb);_deb=setTimeout(()=>{renderTariffe();refocus("tCons")},600);}
 });
 $("#main").addEventListener("change",async e=>{
+  if(e.target.id==="fSort"){fState.sort=e.target.value;LS.set("rc_fonti",fState);renderFonti();return;}
   if(e.target.id!=="impFile"||!e.target.files[0])return;
   try{const arr=JSON.parse(await e.target.files[0].text());if(!Array.isArray(arr))throw 0;
     const ids=new Set(state.saved.map(s=>s.id));arr.forEach(x=>{if(x&&x.id&&!ids.has(x.id))state.saved.push(x)});
     LS.set("rc_saved",state.saved);toast("Archivio importato");render();}
   catch{toast("File non valido")}
-});
-
-const fState=Object.assign({sort:"scadenza",area:"Tutte",stato:"tutti",isee:""},LS.get("rc_fonti",{}));
-const euro=n=>n.toLocaleString("it-IT",{minimumFractionDigits:0,maximumFractionDigits:2})+" €";
-function daysTo(d){return Math.ceil((new Date(d+"T23:59:59")-new Date())/864e5)}
-function renderFonti(){
-  const my=parseFloat(String(fState.isee).replace(/\./g,"").replace(",","."));
-  const hasIsee=!isNaN(my)&&my>=0;
-  const okIsee=s=>!hasIsee||s.isee==null||my<=s.isee;
-  const okArea=s=>fState.area==="Tutte"||s.area===fState.area;
-  const okStato=s=>fState.stato==="tutti"||s.stato===fState.stato;
-  // conteggi: ogni gruppo di filtri conta tenendo conto degli altri filtri attivi
-  const cntArea=a=>SOURCES.filter(s=>okIsee(s)&&okStato(s)&&(a==="Tutte"||s.area===a)).length;
-  const cntStato=st=>SOURCES.filter(s=>okIsee(s)&&okArea(s)&&(st==="tutti"||s.stato===st)).length;
-  let list=SOURCES.filter(s=>okIsee(s)&&okArea(s)&&okStato(s));
-  const active=fState.area!=="Tutte"||fState.stato!=="tutti"||hasIsee;
-  const rank=s=>{ if(s.scad&&daysTo(s.scad)>=0&&s.stato!=="chiuso") return daysTo(s.scad);
-    return {aperto:5000,attesa:6000,automatico:7000,chiuso:6500,permanente:8000}[s.stato]||9000; };
-  if(fState.sort==="scadenza") list.sort((a,b)=>rank(a)-rank(b)||(a.isee??1e9)-(b.isee??1e9));
-  else if(fState.sort==="isee") list.sort((a,b)=>(a.isee??1e9)-(b.isee??1e9));
-  else list.sort((a,b)=>a.ente.localeCompare(b.ente)||a.area.localeCompare(b.area));
-  const card=s=>{
-    const st=STATO[s.stato]||["",""];
-    let sc="";
-    if(s.scad){const d=daysTo(s.scad);const dt=new Date(s.scad).toLocaleDateString("it-IT");
-      sc=d<0?`<span class="badge">⌛ scaduto ${dt}</span>`:`<span class="${d<=60?"new":"badge"}">⏰ ${dt} · ${d} gg</span>`;}
-    const is=s.isee==null?`<span class="badge">Nessun limite ISEE</span>`:`<span class="badge">ISEE ≤ ${euro(s.isee)}</span>`;
-    return `<article class="card"><div class="meta"><span class="badge">${st[0]} ${st[1]}</span>${sc}${is}<span>${esc(s.ente)} · ${esc(s.area)}</span></div>
-      <h3><a href="${s.u}" target="_blank" rel="noopener" style="color:var(--pri);text-decoration:none">${esc(s.t)} ↗</a></h3>${s.nota?`<p>${esc(s.nota)}</p>`:""}
-      <div class="acts"><button type="button" data-fs="${esc(s.u)}">📤 Condividi</button></div></article>`;
-  };
-  $("#main").innerHTML=`<div class="card">
-    <label class="row">Il mio ISEE (€)<input id="fIsee" inputmode="decimal" placeholder="es. 18000" value="${esc(fState.isee)}" style="width:130px;padding:8px"></label>
-    <label class="row">Ordina per<select id="fSort" style="padding:8px">
-      <option value="scadenza"${fState.sort==="scadenza"?" selected":""}>Scadenza più vicina</option>
-      <option value="isee"${fState.sort==="isee"?" selected":""}>Soglia ISEE crescente</option>
-      <option value="ente"${fState.sort==="ente"?" selected":""}>Ente (Roma / Lazio / Governo)</option></select></label>
-    <p class="status" style="margin:12px 0 0"><b>Categoria</b></p>
-    <div class="chips" style="padding:6px 0 0;border:0" id="fAree" role="group" aria-label="Filtra per categoria">${AREE.map(a=>`<button type="button" class="chip ${fState.area===a?"on":""}" data-fa="${a}" aria-pressed="${fState.area===a}">${AREA_EMOJI[a]} ${a} (${cntArea(a)})</button>`).join("")}</div>
-    <p class="status" style="margin:12px 0 0"><b>Stato della domanda</b></p>
-    <div class="chips" style="padding:6px 0 0;border:0" id="fStati" role="group" aria-label="Filtra per stato">${STATI.map(st=>{const lb=st==="tutti"?["✨","Tutti"]:STATO[st];return `<button type="button" class="chip ${fState.stato===st?"on":""}" data-fst="${st}" aria-pressed="${fState.stato===st}">${lb[0]} ${lb[1]} (${cntStato(st)})</button>`}).join("")}</div>
-    ${active?`<button type="button" class="btn" id="fReset" style="margin-top:10px">✖ Azzera filtri</button>`:""}
-    <p class="status" style="margin-top:8px">${list.length} fonti${hasIsee?" compatibili con il tuo ISEE":""} · verificate il 13/11/2026. Controlla sempre la pagina ufficiale prima di fare domanda.</p></div>`
-    + (list.length?list.map(card).join(""):`<div class="empty">Nessuna fonte per questi filtri.</div>`);
-}
-document.addEventListener("change",e=>{
-  if(e.target.id==="fSort"){fState.sort=e.target.value;LS.set("rc_fonti",fState);renderFonti();}
-});
-document.addEventListener("input",e=>{
-  if(e.target.id==="fIsee"){fState.isee=e.target.value;LS.set("rc_fonti",fState);
-    clearTimeout(window._fi);window._fi=setTimeout(()=>{renderFonti();const i=$("#fIsee");i.focus();i.setSelectionRange(i.value.length,i.value.length)},600);}
-});
-document.addEventListener("click",e=>{
-  const a=e.target.closest("[data-fa]"); if(a){fState.area=a.dataset.fa;LS.set("rc_fonti",fState);renderFonti();return;}
-  const st=e.target.closest("[data-fst]"); if(st){fState.stato=st.dataset.fst;LS.set("rc_fonti",fState);renderFonti();return;}
-  if(e.target.id==="fReset"){Object.assign(fState,{area:"Tutte",stato:"tutti",isee:""});LS.set("rc_fonti",fState);renderFonti();return;}
-  const s=e.target.closest("[data-fs]"); if(s){const src=SOURCES.find(x=>x.u===s.dataset.fs);
-    share({title:src.t,link:src.u,source:src.ente});}
 });
 
 if("serviceWorker"in navigator) navigator.serviceWorker.register("sw.js");
