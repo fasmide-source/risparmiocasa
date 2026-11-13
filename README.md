@@ -17,6 +17,7 @@ App personale che **ogni mattina** cerca in rete le opportunità per abbattere i
 - **Filtri:** solo offerte per clienti domestici, a prezzo fisso, sola luce o solo gas (non dual), valide oggi, disponibili a Roma e senza condizioni limitanti (per esempio "solo soci"). Si tiene un'offerta per fornitore, la più economica.
 - **Calcolo:** prezzo dell'energia × consumo + quota fissa di vendita. Il profilo standard è 2.700 kWh e 3 kW per la luce, 1.400 Smc per il gas. Rete, oneri e imposte sono uguali per tutti i fornitori, quindi non cambiano la classifica.
 - **Avvertenza:** prima di firmare verifica sempre la scheda sintetica dell'offerta e il Portale Offerte.
+- **Se il Portale blocca GitHub (errore 403):** lo scanner prova prima il download diretto con le intestazioni di un browser, poi tre proxy pubblici. Se falliscono entrambi, usa il file più recente che hai caricato in `data/arera/` (istruzioni in `data/arera/LEGGIMI.md`).
 - **Se un giorno non riesce a leggere i dati:** il log di GitHub Actions mostra la riga `[energia] ...` con il motivo, e l'app continua a mostrare i dati dell'ultimo aggiornamento riuscito.
 
 ## Installazione

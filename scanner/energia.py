@@ -70,22 +70,143 @@ def parse_date(s):
     return None
 
 
-def download(commodity):
-    """Cerca il file più recente (fino a 15 giorni indietro)."""
-    for back in range(0, 15):
-        d = date.today() - timedelta(days=back)
-        url = BASE.format(y=d.year, m=d.month, c=commodity, d=d.strftime("%Y%m%d"))
+import glob
+import gzip
+import http.cookiejar
+import zipfile
+
+MANUAL_DIR = os.path.join(ROOT, "data", "arera")
+OPEN_DATA_PAGES = [
+    "https://www.ilportaleofferte.it/portaleOfferte/it/open-data.page",
+    "https://www.ilportaleofferte.it/portaleOfferte/it/opendata.page",
+]
+# Proxy pubblici usati solo se il Portale blocca i server di GitHub ({u} = URL codificato)
+PROXIES = [
+    "https://api.allorigins.win/raw?url={u}",
+    "https://corsproxy.io/?url={u}",
+    "https://api.codetabs.com/v1/proxy?quest={raw}",
+]
+HEADERS = {
+    "User-Agent": UA,
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "it-IT,it;q=0.9,en;q=0.8",
+    "Accept-Encoding": "gzip",
+    "Referer": "https://www.ilportaleofferte.it/portaleOfferte/it/open-data.page",
+    "Connection": "close",
+}
+_jar = http.cookiejar.CookieJar()
+_opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(_jar))
+
+
+def _get(url, timeout=120):
+    req = urllib.request.Request(url, headers=HEADERS)
+    with _opener.open(req, timeout=timeout) as r:
+        data = r.read()
+        if r.headers.get("Content-Encoding") == "gzip":
+            data = gzip.decompress(data)
+    return data
+
+
+def _unpack(data):
+    """Accetta XML semplice, gzip o zip (anche dai caricamenti manuali)."""
+    if data[:2] == b"\x1f\x8b":
+        data = gzip.decompress(data)
+    if data[:2] == b"PK":
+        with zipfile.ZipFile(io.BytesIO(data)) as z:
+            name = next(n for n in z.namelist() if n.lower().endswith(".xml"))
+            data = z.read(name)
+    return data
+
+
+def _is_xml(data):
+    head = data.lstrip()[:400].lower()
+    return head[:1] == b"<" and b"<html" not in head and b"<!doctype html" not in head and len(data) > 2000
+
+
+def _candidate_urls(commodity):
+    urls = []
+    # 1) link reali letti dalla pagina Open Data (se raggiungibile)
+    for page in OPEN_DATA_PAGES:
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": UA, "Connection": "close"})
-            with urllib.request.urlopen(req, timeout=120) as r:
-                data = r.read()
-            if data.lstrip()[:1] == b"<" and b"<html" not in data[:500].lower():
-                log(f"{commodity}: scaricato {url} ({len(data)//1024} KB)")
-                return data, url, d
+            html = _get(page, timeout=30).decode("utf-8", "ignore")
+            for href in re.findall(r'href="([^"]*PO_Offerte_' + commodity + r'_MLIBERO[^"]*)"', html):
+                urls.append(urllib.parse.urljoin(page, href.replace("&amp;", "&")))
+            if urls:
+                break
         except Exception as e:
-            if back == 0:
-                log(f"{commodity}: {url} -> {e}")
-    raise RuntimeError(f"Nessun file offerte {commodity} trovato negli ultimi 15 giorni")
+            log(f"{commodity}: pagina open data non raggiungibile ({e})")
+    # 2) URL costruiti per gli ultimi 10 giorni
+    for back in range(0, 10):
+        d = date.today() - timedelta(days=back)
+        urls.append(BASE.format(y=d.year, m=d.month, c=commodity, d=d.strftime("%Y%m%d")))
+    seen, out = set(), []
+    for u in urls:
+        if u not in seen:
+            seen.add(u)
+            out.append(u)
+    return out
+
+
+def _date_from(name):
+    m = re.search(r"(20\d{6})", name)
+    try:
+        return datetime.strptime(m.group(1), "%Y%m%d").date() if m else date.today()
+    except ValueError:
+        return date.today()
+
+
+def _manual(commodity):
+    """File caricato a mano in data/arera/ (es. PO_Offerte_E_MLIBERO_20261113.xml o .zip)."""
+    files = sorted(glob.glob(os.path.join(MANUAL_DIR, f"*_{commodity}_*")) + glob.glob(os.path.join(MANUAL_DIR, f"*Offerte_{commodity}*")),
+                   key=lambda f: (_date_from(os.path.basename(f)), os.path.getmtime(f)), reverse=True)
+    for f in files:
+        try:
+            data = _unpack(open(f, "rb").read())
+            if _is_xml(data):
+                d = _date_from(os.path.basename(f))
+                log(f"{commodity}: uso il file caricato a mano {os.path.basename(f)}")
+                return data, "caricamento manuale: " + os.path.basename(f), d
+        except Exception as e:
+            log(f"{commodity}: file manuale {f} non leggibile ({e})")
+    return None
+
+
+def download(commodity):
+    """Prova: diretto (con cookie e header da browser) -> proxy pubblici -> file caricato a mano."""
+    urls = _candidate_urls(commodity)
+    try:
+        _get("https://www.ilportaleofferte.it/portaleOfferte/", timeout=30)  # ottiene eventuali cookie
+    except Exception:
+        pass
+    errors = []
+    for url in urls:
+        try:
+            data = _unpack(_get(url))
+            if _is_xml(data):
+                log(f"{commodity}: scaricato direttamente {url} ({len(data)//1024} KB)")
+                return data, url, _date_from(url)
+        except Exception as e:
+            errors.append(str(e))
+            if "404" in str(e):
+                continue
+            if "403" in str(e):
+                break  # bloccato: inutile provare le altre date in diretta
+    log(f"{commodity}: download diretto non riuscito ({errors[-1] if errors else 'nessun file'}), provo i proxy")
+    for url in urls[:4]:
+        for px in PROXIES:
+            purl = px.format(u=urllib.parse.quote(url, safe=""), raw=url)
+            try:
+                data = _unpack(_get(purl, timeout=180))
+                if _is_xml(data):
+                    log(f"{commodity}: scaricato via proxy {purl.split('/')[2]} ({len(data)//1024} KB)")
+                    return data, url, _date_from(url)
+            except Exception as e:
+                log(f"{commodity}: proxy {purl.split('/')[2]} -> {e}")
+    m = _manual(commodity)
+    if m:
+        return m
+    raise RuntimeError("Il Portale Offerte blocca i server di GitHub e nessun file è presente in data/arera/. "
+                       "Scarica il file dal Portale e caricalo in data/arera/ (vedi README).")
 
 
 def flatten(el):
