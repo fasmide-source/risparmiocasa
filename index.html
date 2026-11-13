@@ -143,6 +143,7 @@ const state = {
   feed: LS.get("rc_feed",{items:[],categories:DEFAULT_CATS,updated:null}),
   energia: LS.get("rc_energia",null),
   saved: LS.get("rc_saved",[]),
+  hidden: LS.get("rc_hidden",{}),   // id/titolo normalizzato -> data eliminazione
   lastSeen: LS.get("rc_lastSeen",null),
   settings: Object.assign({feedUrl:"data/feed.json",proxy:"https://api.allorigins.win/raw?url=",notify:false},LS.get("rc_settings",{}))
 };
@@ -155,7 +156,9 @@ const cats = ()=>Object.assign({},DEFAULT_CATS,state.feed.categories||{});
 const fmt = d=>{try{return new Date(d).toLocaleDateString("it-IT",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"})}catch{return ""}};
 const euro=(n,d=2)=>Number(n).toLocaleString("it-IT",{minimumFractionDigits:d,maximumFractionDigits:d})+" €";
 const safeUrl=u=>/^https?:\/\//i.test(u||"")?u:(u?"https://"+u:PORTALE);
-function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("show");setTimeout(()=>e.classList.remove("show"),2200)}
+let _tt;
+function toast(t,undo){const e=$("#toast");e.textContent=t;e.classList.add("show");e.style.pointerEvents=undo?"auto":"none";e.style.cursor=undo?"pointer":"default";
+  e.onclick=undo?()=>{e.classList.remove("show");undoHide()}:null;clearTimeout(_tt);_tt=setTimeout(()=>{e.classList.remove("show");e.style.pointerEvents="none"},undo?5000:2200)}
 
 async function loadFeed(){
   $("#sub").textContent="Aggiornamento in corso…";
@@ -199,7 +202,7 @@ async function liveScan(){
 }
 
 function checkNew(){
-  const last=state.lastSeen; const nuove=state.feed.items.filter(i=>!last||i.found>last);
+  const last=state.lastSeen; const nuove=visible(state.feed.items).filter(i=>!last||i.found>last);
   if(last && nuove.length && state.settings.notify && "Notification" in window && Notification.permission==="granted"){
     navigator.serviceWorker?.ready.then(reg=>reg.showNotification("RisparmioCasa",{
       body:nuove.length+" nuove opportunità di risparmio",icon:"icons/icon-192.png",tag:"rc-daily"}));
@@ -207,6 +210,27 @@ function checkNew(){
 }
 function markSeen(){state.lastSeen=new Date().toISOString();LS.set("rc_lastSeen",state.lastSeen)}
 
+const normT=t=>String(t||"").toLowerCase().replace(/[^a-z0-9]/g,"").slice(0,80);
+function isHidden(i){return !!(state.hidden[i.id]||state.hidden["t:"+normT(i.title)])}
+function visible(list){return list.filter(i=>!isHidden(i))}
+let _undo=null;
+function hideItem(item){
+  const now=new Date().toISOString();
+  state.hidden[item.id]=now; const k=normT(item.title); if(k) state.hidden["t:"+k]=now;
+  const wasSaved=state.saved.find(s=>s.id===item.id);
+  if(wasSaved){state.saved=state.saved.filter(s=>s.id!==item.id);LS.set("rc_saved",state.saved)}
+  pruneHidden(); LS.set("rc_hidden",state.hidden);
+  _undo={item,wasSaved,k};
+  render(); toast("🗑️ Notizia eliminata · tocca qui per annullare",true);
+}
+function undoHide(){
+  if(!_undo)return; const {item,wasSaved,k}=_undo;
+  delete state.hidden[item.id]; if(k) delete state.hidden["t:"+k];
+  if(wasSaved){state.saved.unshift(wasSaved);LS.set("rc_saved",state.saved)}
+  LS.set("rc_hidden",state.hidden); _undo=null; render(); toast("Ripristinata");
+}
+// mantiene la lista eliminate leggera: oltre 90 giorni le notizie non tornano comunque nel feed
+function pruneHidden(){const lim=Date.now()-90*864e5;for(const[k,v]of Object.entries(state.hidden)){if(new Date(v).getTime()<lim)delete state.hidden[k]}}
 function isSaved(id){return state.saved.some(s=>s.id===id)}
 function toggleSave(item){
   if(isSaved(item.id)){state.saved=state.saved.filter(s=>s.id!==item.id);toast("Rimosso dall'archivio")}
@@ -237,6 +261,7 @@ function card(i,inArchive){
       <button type="button" data-a="save" class="${isSaved(i.id)?"saved":""}">${isSaved(i.id)?"★ Salvato":"☆ Salva"}</button>
       <button type="button" data-a="share">📤 Condividi</button>
       <button type="button" data-a="wa">💬 WhatsApp</button>
+      <button type="button" data-a="del" aria-label="Elimina notizia">🗑️ Elimina</button>
     </div>
     ${inArchive?`<textarea data-a="note" rows="2" placeholder="Nota personale (es. scadenza, documenti da preparare)…">${esc(i.note||"")}</textarea>`:""}
   </article>`;
@@ -356,16 +381,17 @@ function render(){
       <button class="btn" type="button" id="exp">⬇️ Esporta archivio</button>
       <button class="btn" type="button" id="imp">⬆️ Importa archivio</button>
       <input type="file" id="impFile" accept="application/json" hidden>
-      <p class="status" style="margin-top:12px">Archivio: ${state.saved.length} elementi salvati · Feed: ${state.feed.items.length} notizie</p></div>`;
+      <p class="status" style="margin-top:12px">Archivio: ${state.saved.length} elementi salvati · Feed: ${visible(state.feed.items).length} notizie · Eliminate: ${state.feed.items.filter(isHidden).length}</p>
+      <button class="btn" type="button" id="unhide">♻️ Ripristina notizie eliminate</button></div>`;
     return;
   }
   let list;
   if(state.view==="archivio") list=state.saved;
   else if(state.view==="oggi"){
     const lim=Date.now()-36*3600e3;
-    list=state.feed.items.filter(i=>new Date(i.found).getTime()>lim||new Date(i.published).getTime()>lim)
+    list=visible(state.feed.items).filter(i=>new Date(i.found).getTime()>lim||new Date(i.published).getTime()>lim)
       .sort((a,b)=>(b.score||0)-(a.score||0));
-  } else list=state.feed.items;
+  } else list=visible(state.feed.items);
   list=filtered(list);
   const head=state.view==="archivio"?`<p class="status">⭐ ${list.length} opportunità salvate</p>`:`<p class="status">${list.length} opportunità${state.view==="oggi"?" delle ultime 36 ore, ordinate per rilevanza":""}</p>`;
   m.innerHTML=head+(list.length?list.map(i=>card(i,state.view==="archivio")).join(""):
@@ -396,6 +422,7 @@ $("#main").addEventListener("click",async e=>{
     const item=allItems().find(i=>i.id===id);if(!item)return;
     if(b.dataset.a==="save")toggleSave(item);
     if(b.dataset.a==="share")share(item);
+    if(b.dataset.a==="del"){hideItem(item);return;}
     if(b.dataset.a==="wa")window.open("https://wa.me/?text="+encodeURIComponent("💰 "+item.title+"\n"+item.link),"_blank");
     return;
   }
@@ -415,6 +442,7 @@ $("#main").addEventListener("click",async e=>{
     const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="archivio-risparmiocasa.json";a.click();
   }
   if(t.id==="imp")$("#impFile").click();
+  if(t.id==="unhide"){if(confirm("Ripristinare tutte le notizie eliminate?")){state.hidden={};LS.set("rc_hidden",state.hidden);toast("Notizie ripristinate");render();}}
 });
 let _deb;
 function refocus(id){const i=$("#"+id);if(i){i.focus();const n=i.value.length;try{i.setSelectionRange(n,n)}catch{}}}
