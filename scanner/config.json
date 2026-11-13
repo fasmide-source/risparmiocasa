@@ -1,0 +1,172 @@
+{
+  "_nota": "Modifica liberamente categorie e query. Ogni query viene cercata ogni giorno su Google News (ultime 48 ore).",
+  "giorni_archivio_feed": 30,
+  "max_notizie_per_query": 8,
+  "max_notizie_nella_notifica": 6,
+  "categorie": {
+    "energia": {
+      "label": "Luce e gas",
+      "emoji": "⚡",
+      "query": [
+        "offerte luce gas mercato libero convenienti",
+        "tariffe luce gas prezzo fisso migliori",
+        "bolletta luce gas ARERA risparmio",
+        "bonus sociale bollette"
+      ]
+    },
+    "fibra": {
+      "label": "Fibra e telefonia",
+      "emoji": "🌐",
+      "query": [
+        "offerte fibra casa promo",
+        "offerte fibra prezzo bloccato",
+        "offerte mobile convenienti"
+      ]
+    },
+    "auto": {
+      "label": "Assicurazione auto",
+      "emoji": "🚗",
+      "query": [
+        "rc auto risparmio tariffe",
+        "assicurazione auto prezzi IVASS",
+        "rc auto familiare"
+      ]
+    },
+    "spesa": {
+      "label": "Spesa e coupon",
+      "emoji": "🛒",
+      "query": [
+        "coupon spesa supermercato",
+        "volantino offerte supermercati Roma",
+        "codici sconto spesa online",
+        "carta dedicata a te"
+      ]
+    },
+    "abbonamenti": {
+      "label": "Abbonamenti",
+      "emoji": "🎟️",
+      "query": [
+        "abbonamenti streaming offerte sconto",
+        "abbonamento Atac agevolazioni",
+        "abbonamento palestra offerta Roma"
+      ]
+    },
+    "roma": {
+      "label": "Comune di Roma",
+      "emoji": "🏛️",
+      "query": [
+        "Roma Capitale bonus famiglie",
+        "Comune di Roma contributo voucher",
+        "Roma Capitale bando famiglie",
+        "site:comune.roma.it contributo",
+        "site:comune.roma.it avviso pubblico famiglie",
+        "bonus affitto Roma Capitale GECOA",
+        "Roma Capitale contributo affitto graduatoria",
+        "bonus TARI Roma esenzione",
+        "Roma Capitale avviso pubblico municipio contributo",
+        "ATAC abbonamento agevolato ISEE",
+        "Roma Capitale cedole librarie"
+      ]
+    },
+    "lazio": {
+      "label": "Regione Lazio",
+      "emoji": "🟡",
+      "query": [
+        "Regione Lazio bonus famiglie",
+        "Regione Lazio voucher contributi",
+        "Regione Lazio bando famiglie",
+        "site:lazioeuropa.it cittadini",
+        "site:regione.lazio.it avviso famiglie",
+        "LazioEuropa bando aperto cittadini",
+        "Regione Lazio libri di testo contributo",
+        "Regione Lazio borse di studio IoStudio",
+        "agevolazioni tariffarie Metrebus Regione Lazio",
+        "BellaXNoi carta giovani convenzioni"
+      ]
+    },
+    "governo": {
+      "label": "Governo e INPS",
+      "emoji": "🇮🇹",
+      "query": [
+        "bonus famiglie INPS domanda",
+        "detrazioni fiscali famiglie novità",
+        "bonus elettrodomestici",
+        "assegno unico novità",
+        "agevolazioni fiscali casa ristrutturazione",
+        "site:inps.it famiglie bonus",
+        "Portale della Famiglia INPS nuove prestazioni",
+        "site:agenziaentrate.gov.it agevolazioni",
+        "MIMIT ecobonus incentivi auto",
+        "bonus colonnine domestiche MIMIT"
+      ]
+    },
+    "ev": {
+      "label": "Auto elettriche",
+      "emoji": "🔌",
+      "query": [
+        "tariffe ricarica auto elettrica abbonamento",
+        "incentivi auto elettriche",
+        "colonnine ricarica Roma prezzi"
+      ]
+    },
+    "finanziamenti": {
+      "label": "Finanziamenti",
+      "emoji": "💶",
+      "query": [
+        "finanziamenti agevolati famiglie",
+        "prestiti tasso zero famiglie",
+        "mutuo prima casa agevolazioni giovani"
+      ]
+    },
+    "salute": {
+      "label": "Sanità",
+      "emoji": "🩺",
+      "query": [
+        "bonus psicologo INPS domanda 2026",
+        "esenzione ticket Lazio reddito",
+        "Salute Lazio esenzioni novità",
+        "detrazione spese sanitarie novità"
+      ]
+    },
+    "scuola": {
+      "label": "Scuola e infanzia",
+      "emoji": "🎒",
+      "query": [
+        "bonus asilo nido INPS",
+        "borse di studio IoStudio Lazio",
+        "Roma Capitale buoni libro borse di studio",
+        "Carta Valore 2027 giovani",
+        "libri di testo contributo Lazio Comune"
+      ]
+    }
+  },
+  "parole_bonus": [
+    "gratis",
+    "gratuito",
+    "sconto",
+    "risparmio",
+    "bonus",
+    "voucher",
+    "contributo",
+    "detrazione",
+    "agevolazion",
+    "incentiv",
+    "coupon",
+    "codice sconto",
+    "promo",
+    "offerta",
+    "rimborso",
+    "domanda",
+    "scadenza",
+    "bando",
+    "roma",
+    "lazio",
+    "famiglie",
+    "isee"
+  ],
+  "parole_escluse": [
+    "oroscopo",
+    "gossip",
+    "calciomercato"
+  ]
+}

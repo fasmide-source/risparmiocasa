@@ -1,0 +1,131 @@
+{
+ "updated": "2026-11-13T20:39:41.962323+00:00",
+ "categories": {
+  "energia": {
+   "label": "Luce e gas",
+   "emoji": "⚡"
+  },
+  "fibra": {
+   "label": "Fibra e telefonia",
+   "emoji": "🌐"
+  },
+  "auto": {
+   "label": "Assicurazione auto",
+   "emoji": "🚗"
+  },
+  "spesa": {
+   "label": "Spesa e coupon",
+   "emoji": "🛒"
+  },
+  "abbonamenti": {
+   "label": "Abbonamenti",
+   "emoji": "🎟️"
+  },
+  "roma": {
+   "label": "Comune di Roma",
+   "emoji": "🏛️"
+  },
+  "lazio": {
+   "label": "Regione Lazio",
+   "emoji": "🟡"
+  },
+  "governo": {
+   "label": "Governo e INPS",
+   "emoji": "🇮🇹"
+  },
+  "ev": {
+   "label": "Auto elettriche",
+   "emoji": "🔌"
+  },
+  "finanziamenti": {
+   "label": "Finanziamenti",
+   "emoji": "💶"
+  }
+ },
+ "items": [
+  {
+   "id": "seed0",
+   "title": "Confronta le offerte luce e gas sul Portale Offerte ARERA",
+   "link": "https://www.ilportaleofferte.it",
+   "source": "ARERA",
+   "published": "2026-11-13T20:39:41.962323+00:00",
+   "summary": "Strumento pubblico e gratuito per confrontare tutte le offerte del mercato libero.",
+   "category": "energia",
+   "query": "fonte ufficiale",
+   "score": 10,
+   "found": "2026-11-13T20:39:41.962323+00:00"
+  },
+  {
+   "id": "seed1",
+   "title": "Bonus sociale bollette: verifica requisiti ISEE",
+   "link": "https://www.arera.it/consumatori/bonus-sociale",
+   "source": "ARERA",
+   "published": "2026-11-13T20:39:41.962323+00:00",
+   "summary": "Il bonus si ottiene presentando la DSU per l'ISEE.",
+   "category": "energia",
+   "query": "fonte ufficiale",
+   "score": 10,
+   "found": "2026-11-13T20:39:41.962323+00:00"
+  },
+  {
+   "id": "seed2",
+   "title": "Preventivatore pubblico RC auto IVASS",
+   "link": "https://www.preventivass.it",
+   "source": "IVASS",
+   "published": "2026-11-13T20:39:41.962323+00:00",
+   "summary": "Confronta i preventivi RC auto delle compagnie.",
+   "category": "auto",
+   "query": "fonte ufficiale",
+   "score": 10,
+   "found": "2026-11-13T20:39:41.962323+00:00"
+  },
+  {
+   "id": "seed3",
+   "title": "Prestazioni e bonus INPS per le famiglie",
+   "link": "https://www.inps.it",
+   "source": "INPS",
+   "published": "2026-11-13T20:39:41.962323+00:00",
+   "summary": "Consulta prestazioni, requisiti e scadenze.",
+   "category": "governo",
+   "query": "fonte ufficiale",
+   "score": 10,
+   "found": "2026-11-13T20:39:41.962323+00:00"
+  },
+  {
+   "id": "seed4",
+   "title": "Agevolazioni fiscali dell'Agenzia delle Entrate",
+   "link": "https://www.agenziaentrate.gov.it/portale/agevolazioni",
+   "source": "Agenzia Entrate",
+   "published": "2026-11-13T20:39:41.962323+00:00",
+   "summary": "Guide a detrazioni e bonus.",
+   "category": "governo",
+   "query": "fonte ufficiale",
+   "score": 10,
+   "found": "2026-11-13T20:39:41.962323+00:00"
+  },
+  {
+   "id": "seed5",
+   "title": "Servizi e contributi di Roma Capitale",
+   "link": "https://www.comune.roma.it",
+   "source": "Roma Capitale",
+   "published": "2026-11-13T20:39:41.962323+00:00",
+   "summary": "Bandi e contributi del Comune.",
+   "category": "roma",
+   "query": "fonte ufficiale",
+   "score": 10,
+   "found": "2026-11-13T20:39:41.962323+00:00"
+  },
+  {
+   "id": "seed6",
+   "title": "Bandi e contributi della Regione Lazio",
+   "link": "https://www.regione.lazio.it",
+   "source": "Regione Lazio",
+   "published": "2026-11-13T20:39:41.962323+00:00",
+   "summary": "Bandi, voucher e contributi regionali.",
+   "category": "lazio",
+   "query": "fonte ufficiale",
+   "score": 10,
+   "found": "2026-11-13T20:39:41.962323+00:00"
+  }
+ ]
+}
