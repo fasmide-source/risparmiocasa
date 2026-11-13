@@ -23,10 +23,11 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           APP_URL: ${{ vars.APP_URL }}
         run: python scanner/scan.py
-      - name: Salva feed aggiornato
+      - name: Salva dati aggiornati
         run: |
           git config user.name "risparmiocasa-bot"
           git config user.email "bot@users.noreply.github.com"
-          git add data/feed.json
-          git diff --cached --quiet || git commit -m "Feed del $(date +'%d/%m/%Y')"
+          git add data/
+          git diff --cached --quiet || git commit -m "Dati del $(date +'%d/%m/%Y')"
+          git pull --rebase || true
           git push
