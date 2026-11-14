@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-13T21:41:23.427773+00:00",
+ "aggiornato": "2026-11-14T06:13:31.987845+00:00",
  "profilo": {
   "E": {
    "consumo": 2700,
@@ -584,7 +584,7 @@
  "gas": {
   "fonte": "caricamento manuale: PO_Offerte_G_MLIBERO_20261113.xml",
   "data_file": "2026-11-13",
-  "offerte_valide": 172,
+  "offerte_valide": 171,
   "top": [
    {
     "fornitore": "Vuscom",
@@ -808,19 +808,6 @@
     "spesa_fornitore": 1158.21,
     "url": "https://novanow.it/offerte/gas-flat-web/",
     "valida_fino": "2026-11-26"
-   },
-   {
-    "fornitore": "Octopusenergy",
-    "piva": "01771990445",
-    "offerta": "Octopus Fissa 24M Gas",
-    "codice": "000129GSFML18XXXXXXOCTOFIXG24v18",
-    "prezzo": 0.78,
-    "fisso_anno": 84.0,
-    "una_tantum": 0.0,
-    "durata_mesi": null,
-    "spesa_fornitore": 1176.0,
-    "url": "https://octopusenergy.it/le-nostre-tariffe",
-    "valida_fino": "2026-11-13"
    },
    {
     "fornitore": "Illumia",
@@ -1146,6 +1133,19 @@
     "spesa_fornitore": 1388.0,
     "url": "https://download.unionenergia.it/cte/FIXSML1GCMT0127A",
     "valida_fino": "2026-12-07"
+   },
+   {
+    "fornitore": "Bartonenergy",
+    "piva": "03555090541",
+    "offerta": "B-FLAT HOME GAS: (0,91)",
+    "codice": "026650GSFML01XX00ONCFIXAFLH21026",
+    "prezzo": 0.91,
+    "fisso_anno": 142.8,
+    "una_tantum": 0.0,
+    "durata_mesi": 12,
+    "spesa_fornitore": 1416.8,
+    "url": "www.bartonenergy.it/offerte-gas-casa-b-flat-home",
+    "valida_fino": "2026-12-19"
    }
   ],
   "errore": null
