@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-15T06:17:50.763201+00:00",
+ "aggiornato": "2026-11-16T07:01:25.773831+00:00",
  "profilo": {
   "E": {
    "consumo": 2700,
@@ -15,7 +15,7 @@
  "luce": {
   "fonte": "caricamento manuale: PO_Offerte_E_MLIBERO_20261113.xml",
   "data_file": "2026-11-13",
-  "offerte_valide": 291,
+  "offerte_valide": 203,
   "top": [
    {
     "fornitore": "Dolomitienergia",
@@ -254,32 +254,6 @@
     "valida_fino": "2026-11-23"
    },
    {
-    "fornitore": "Irenlucegas",
-    "piva": "01178580997",
-    "offerta": "IREN PREZZO FISSO ULTRA LUCE",
-    "codice": "000208ESFML18XX000IEDOIUFL261115",
-    "prezzo": 0.1593,
-    "fisso_anno": 159.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 589.11,
-    "url": "https://www.irenlucegas.it/casa/pacchetti-offerte-luce-e-gas/luminea-ultra",
-    "valida_fino": "2026-11-15"
-   },
-   {
-    "fornitore": "Unicoge",
-    "piva": "03237330232",
-    "offerta": "Energi@Sicura",
-    "codice": "000555ESFFL01XXENERGIASICUR1126A",
-    "prezzo": 0.179,
-    "fisso_anno": 108.0,
-    "una_tantum": 0.0,
-    "durata_mesi": null,
-    "spesa_fornitore": 591.3,
-    "url": "https://www.unicoge.it/per-la-tua-casa/offerte-energia/",
-    "valida_fino": "2026-11-15"
-   },
-   {
     "fornitore": "Ovenergy",
     "piva": "12952081003",
     "offerta": "Fix OV Domestici",
@@ -330,19 +304,6 @@
     "spesa_fornitore": 599.3,
     "url": "https://postepay.poste.it/gamma/poste-energia-luce-gas.html",
     "valida_fino": "2026-11-16"
-   },
-   {
-    "fornitore": "Teaenergia",
-    "piva": "02125710208",
-    "offerta": "Energia Certa 36",
-    "codice": "001227ESFML05XX38600002026T67005",
-    "prezzo": 0.169,
-    "fisso_anno": 144.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 36,
-    "spesa_fornitore": 600.3,
-    "url": "https://teaenergia.it/tea/homepage",
-    "valida_fino": "2026-11-15"
    },
    {
     "fornitore": "Ajoenergia",
@@ -577,6 +538,45 @@
     "spesa_fornitore": 644.4,
     "url": "https://www.sunrisesrl.it/offerte-luce/",
     "valida_fino": "2026-12-31"
+   },
+   {
+    "fornitore": "Bronistradellagaseluce",
+    "piva": "01967760180",
+    "offerta": "DOMESTICO SICURO LUCE FISSO 24",
+    "codice": "000398ESFFL01XXBDFIZS24L26110020",
+    "prezzo": 0.187,
+    "fisso_anno": 144.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 24,
+    "spesa_fornitore": 648.9,
+    "url": "www.bronistradellagaseluce.it",
+    "valida_fino": "2026-11-23"
+   },
+   {
+    "fornitore": "Libarnagas",
+    "piva": "01760860161",
+    "offerta": "DOMESTICO SICURO LUCE FISSO 24",
+    "codice": "000785ESFFL01XXLDFIS24L261100300",
+    "prezzo": 0.187,
+    "fisso_anno": 144.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 24,
+    "spesa_fornitore": 648.9,
+    "url": "www.libarnagas.com",
+    "valida_fino": "2026-11-23"
+   },
+   {
+    "fornitore": "Unoenergy",
+    "piva": "01368720080",
+    "offerta": "DOMESTICO SICURO LUCE FISSO 24",
+    "codice": "001293ESFFL01XXEDFIXSI24L2611001",
+    "prezzo": 0.187,
+    "fisso_anno": 144.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 24,
+    "spesa_fornitore": 648.9,
+    "url": "https://www.unoenergy.it/",
+    "valida_fino": "2026-11-23"
    }
   ],
   "errore": null
@@ -584,7 +584,7 @@
  "gas": {
   "fonte": "caricamento manuale: PO_Offerte_G_MLIBERO_20261113.xml",
   "data_file": "2026-11-13",
-  "offerte_valide": 171,
+  "offerte_valide": 131,
   "top": [
    {
     "fornitore": "Vuscom",
@@ -719,19 +719,6 @@
     "valida_fino": "2026-11-19"
    },
    {
-    "fornitore": "Irenlucegas",
-    "piva": "01178580997",
-    "offerta": "IREN PREZZO FISSO ULTRA GAS",
-    "codice": "000208GSFML37XX000IGDOIULF261115",
-    "prezzo": 0.648,
-    "fisso_anno": 156.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 1063.2,
-    "url": "https://www.irenlucegas.it/casa/pacchetti-offerte-luce-e-gas/luminea-ultra",
-    "valida_fino": "2026-11-15"
-   },
-   {
     "fornitore": "Asteaenergia",
     "piva": "02078510423",
     "offerta": "SERENA GAS 36",
@@ -782,19 +769,6 @@
     "spesa_fornitore": 1129.92,
     "url": "https://www.ermespower.it/offerte/",
     "valida_fino": "2027-01-31"
-   },
-   {
-    "fornitore": "Unicoge",
-    "piva": "03237330232",
-    "offerta": "GAS_SICURO",
-    "codice": "000555GSFML01XXGASSICURONOV2026A",
-    "prezzo": 0.75,
-    "fisso_anno": 108.0,
-    "una_tantum": 0.0,
-    "durata_mesi": null,
-    "spesa_fornitore": 1158.0,
-    "url": "https://www.unicoge.it/per-la-tua-casa/offerte-gas/",
-    "valida_fino": "2026-11-15"
    },
    {
     "fornitore": "Novaaeg",
@@ -914,19 +888,6 @@
     "valida_fino": "2026-11-23"
    },
    {
-    "fornitore": "Sentra",
-    "piva": "12657501008",
-    "offerta": "GAS ANNO SICURO - FIXAGASC0100",
-    "codice": "022326GSFML01XX00SECFIXAGASC0100",
-    "prezzo": 0.79,
-    "fisso_anno": 144.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 12,
-    "spesa_fornitore": 1250.0,
-    "url": "www.sentra.it",
-    "valida_fino": "2026-11-15"
-   },
-   {
     "fornitore": "Poste",
     "piva": "06874351007",
     "offerta": "Poste Energia Gas",
@@ -1016,19 +977,6 @@
     "spesa_fornitore": 1292.0,
     "url": "https://www.seviren.it/altre-offerte/",
     "valida_fino": "2026-11-16"
-   },
-   {
-    "fornitore": "Teaenergia",
-    "piva": "02125710208",
-    "offerta": "Tea Zen Gas",
-    "codice": "001227GSFML16XX38600002026T63081",
-    "prezzo": 0.79,
-    "fisso_anno": 192.0,
-    "una_tantum": 0.0,
-    "durata_mesi": null,
-    "spesa_fornitore": 1298.0,
-    "url": "https://teaenergia.it/tea/offerte/tea-zen-gas",
-    "valida_fino": "2026-11-15"
    },
    {
     "fornitore": "Uniongaseluce",
@@ -1146,6 +1094,58 @@
     "spesa_fornitore": 1416.8,
     "url": "www.bartonenergy.it/offerte-gas-casa-b-flat-home",
     "valida_fino": "2026-12-19"
+   },
+   {
+    "fornitore": "Realeenergia",
+    "piva": "02452390509",
+    "offerta": "TOP_SENZA_PENSIERI_GAS_24_DOM_261026",
+    "codice": "038257GSFML02XXTOPSENZAPENSG24DO",
+    "prezzo": 0.99,
+    "fisso_anno": 120.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 24,
+    "spesa_fornitore": 1506.0,
+    "url": "https://www.realeenergia.it",
+    "valida_fino": "2026-11-29"
+   },
+   {
+    "fornitore": "Sinergylucegas",
+    "piva": "03589630239",
+    "offerta": "FAMILY GAS FIX GD SP10 AR",
+    "codice": "025867GSFML01XX001026SP10FIXGDAR",
+    "prezzo": 0.88,
+    "fisso_anno": 279.6,
+    "una_tantum": 0.0,
+    "durata_mesi": 12,
+    "spesa_fornitore": 1511.6,
+    "url": "https://sinergylucegas.com/offerta-family-gas-fix-gd-sp10-ar/",
+    "valida_fino": "2026-11-30"
+   },
+   {
+    "fornitore": "Centralenergy",
+    "piva": "06909290485",
+    "offerta": "G_CONSUMER_FIXA_NO DEP_Q426",
+    "codice": "029332GSFML02XXGCONSUMFIXANDQ426",
+    "prezzo": 1.34,
+    "fisso_anno": 168.0,
+    "una_tantum": 0.0,
+    "durata_mesi": null,
+    "spesa_fornitore": 2044.0,
+    "url": "https://drive.google.com/file/d/1XXMhDCMNcnQci2yUr01oJnDy-z4ibTx1/view?usp=drive_link",
+    "valida_fino": "2026-12-31"
+   },
+   {
+    "fornitore": "Nen",
+    "piva": "10879560968",
+    "offerta": "Due Gas",
+    "codice": "029748GSFML01XX261105GDDUE000000",
+    "prezzo": 1.44,
+    "fisso_anno": 108.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 24,
+    "spesa_fornitore": 2124.0,
+    "url": "https://nen.it/attiva-nen",
+    "valida_fino": "2026-11-18"
    }
   ],
   "errore": null
