@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-16T07:01:25.773831+00:00",
+ "aggiornato": "2026-11-17T06:26:11.097966+00:00",
  "profilo": {
   "E": {
    "consumo": 2700,
@@ -15,7 +15,7 @@
  "luce": {
   "fonte": "caricamento manuale: PO_Offerte_E_MLIBERO_20261113.xml",
   "data_file": "2026-11-13",
-  "offerte_valide": 203,
+  "offerte_valide": 184,
   "top": [
    {
     "fornitore": "Dolomitienergia",
@@ -31,19 +31,6 @@
     "valida_fino": "2026-11-19"
    },
    {
-    "fornitore": "Atenalucegas",
-    "piva": "02064090026",
-    "offerta": "ATENA PRIMA SCELTA LUCE TOP",
-    "codice": "000567ESFML10XX00AEDOPRIMT261115",
-    "prezzo": 0.143,
-    "fisso_anno": 94.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 12,
-    "spesa_fornitore": 480.1,
-    "url": "https://www.atenalucegas.it/casa/altre-offerte",
-    "valida_fino": "2026-11-16"
-   },
-   {
     "fornitore": "Italygreenpower",
     "piva": "14106681001",
     "offerta": "Spring EE fix dom",
@@ -54,6 +41,19 @@
     "durata_mesi": 12,
     "spesa_fornitore": 511.2,
     "url": "italygreenpower.com/offerte-domestico/",
+    "valida_fino": "2027-12-31"
+   },
+   {
+    "fornitore": "Sferaenergia",
+    "piva": "01917670497",
+    "offerta": "Spring EE fix dom",
+    "codice": "028720ESFML01XX1O00000000SFEE112",
+    "prezzo": 0.136,
+    "fisso_anno": 144.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 12,
+    "spesa_fornitore": 511.2,
+    "url": "sferaenergia.it/offerte-domestico/",
     "valida_fino": "2027-12-31"
    }
   ],
@@ -70,19 +70,6 @@
     "spesa_fornitore": 417.84,
     "url": "https://www.dolomitienergia.it/offerte-casa/luce/dolomiti-fisso-luce-120.html",
     "valida_fino": "2026-11-19"
-   },
-   {
-    "fornitore": "Atenalucegas",
-    "piva": "02064090026",
-    "offerta": "ATENA PRIMA SCELTA LUCE TOP",
-    "codice": "000567ESFML10XX00AEDOPRIMT261115",
-    "prezzo": 0.143,
-    "fisso_anno": 94.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 12,
-    "spesa_fornitore": 480.1,
-    "url": "https://www.atenalucegas.it/casa/altre-offerte",
-    "valida_fino": "2026-11-16"
    },
    {
     "fornitore": "Italygreenpower",
@@ -124,19 +111,6 @@
     "valida_fino": "2026-11-19"
    },
    {
-    "fornitore": "Seviren",
-    "piva": "03916040656",
-    "offerta": "SEV IREN PREZZO FISSO X STG",
-    "codice": "001060ESFML02XX000SEDOXSTG261116",
-    "prezzo": 0.155,
-    "fisso_anno": 99.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 36,
-    "spesa_fornitore": 517.5,
-    "url": "https://www.seviren.it/altre-offerte/",
-    "valida_fino": "2026-11-16"
-   },
-   {
     "fornitore": "Wow360",
     "piva": "02090620689",
     "offerta": "FIX CASA",
@@ -161,19 +135,6 @@
     "spesa_fornitore": 547.65,
     "url": "https://asectrade.it/offerte/",
     "valida_fino": "2026-12-31"
-   },
-   {
-    "fornitore": "Yes Energy",
-    "piva": "09174140963",
-    "offerta": "YES 12 E 50",
-    "codice": "024296ESFML01XXSUPFISS12502610LL",
-    "prezzo": 0.1375,
-    "fisso_anno": 186.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 12,
-    "spesa_fornitore": 557.25,
-    "url": "https://www.yes-energy.it/",
-    "valida_fino": "2026-11-16"
    },
    {
     "fornitore": "Magisenergia",
@@ -293,19 +254,6 @@
     "valida_fino": "2027-06-30"
    },
    {
-    "fornitore": "Poste",
-    "piva": "06874351007",
-    "offerta": "Poste Energia Luce",
-    "codice": "036327ESFML14XX261030REPENGXXXXX",
-    "prezzo": 0.189,
-    "fisso_anno": 89.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 599.3,
-    "url": "https://postepay.poste.it/gamma/poste-energia-luce-gas.html",
-    "valida_fino": "2026-11-16"
-   },
-   {
     "fornitore": "Ajoenergia",
     "piva": "03839870924",
     "offerta": "AJO FISSO 12",
@@ -317,19 +265,6 @@
     "spesa_fornitore": 608.4,
     "url": "https://ajoenergia.it/offerta-casa/ajo-fisso-12/",
     "valida_fino": "2026-11-18"
-   },
-   {
-    "fornitore": "Grittienergia",
-    "piva": "12039890152",
-    "offerta": "PREZZO FISSO LUCE 24",
-    "codice": "000704ESFML01XXERAGCA24F110263RC",
-    "prezzo": 0.16995,
-    "fisso_anno": 153.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 611.87,
-    "url": "WWW.GRITTIENERGIA.IT",
-    "valida_fino": "2026-11-16"
    },
    {
     "fornitore": "Asmenergia",
@@ -395,19 +330,6 @@
     "spesa_fornitore": 616.58,
     "url": "https://heracomm.gruppohera.it/casa/offerte-luce-gas/no-web/piucontrollo-flat-easy-casa",
     "valida_fino": "2026-11-25"
-   },
-   {
-    "fornitore": "Utilita",
-    "piva": "13083740152",
-    "offerta": "U-LIGHT FIX4U 24m",
-    "codice": "000768ESFML01XXLF00000WDNNM26U80",
-    "prezzo": 0.1708,
-    "fisso_anno": 156.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 27,
-    "spesa_fornitore": 617.16,
-    "url": "https://utilita4u.com/u-light-fix4u-24m/",
-    "valida_fino": "2026-11-16"
    },
    {
     "fornitore": "Tirreniaenergia",
@@ -577,6 +499,84 @@
     "spesa_fornitore": 648.9,
     "url": "https://www.unoenergy.it/",
     "valida_fino": "2026-11-23"
+   },
+   {
+    "fornitore": "Esaenergia",
+    "piva": "02116360690",
+    "offerta": "PREZZO FISSO LUCE CASA 24 MESI",
+    "codice": "001785ESFML01XXFISSODOMLV2241126",
+    "prezzo": 0.17391,
+    "fisso_anno": 180.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 24,
+    "spesa_fornitore": 649.56,
+    "url": "https://www.esaenergia.it/prodotti/",
+    "valida_fino": "2026-11-25"
+   },
+   {
+    "fornitore": "Gasway",
+    "piva": "07941160967",
+    "offerta": "LUCE SEMPLICE FIX 3Y",
+    "codice": "014629ESFML01XXGSMPUDFIX26113YEE",
+    "prezzo": 0.19726,
+    "fisso_anno": 120.0,
+    "una_tantum": 0.0,
+    "durata_mesi": null,
+    "spesa_fornitore": 652.61,
+    "url": "https://www.gasway.it/offerte-tariffe-luce-gas-casa/",
+    "valida_fino": "2026-12-05"
+   },
+   {
+    "fornitore": "Vestinagaseluce",
+    "piva": "01671550687",
+    "offerta": "LUCE SEMPLICE FIX 3Y",
+    "codice": "001435ESFML01XXVSMPUDFIX26113YEE",
+    "prezzo": 0.19726,
+    "fisso_anno": 120.0,
+    "una_tantum": 0.0,
+    "durata_mesi": null,
+    "spesa_fornitore": 652.61,
+    "url": "https://www.vestinagaseluce.it/offerte-per-la-tua-casa/",
+    "valida_fino": "2026-12-05"
+   },
+   {
+    "fornitore": "Ermespower",
+    "piva": "06469960485",
+    "offerta": "Fisso_EEL_Fisso 2.0_DO",
+    "codice": "022112ESFML02XXXXXXXXXXEFL26AXDO",
+    "prezzo": 0.176,
+    "fisso_anno": 178.8,
+    "una_tantum": 0.0,
+    "durata_mesi": null,
+    "spesa_fornitore": 654.0,
+    "url": "https://www.ermespower.it/offerte/",
+    "valida_fino": "2027-01-31"
+   },
+   {
+    "fornitore": "Uniongaseluce",
+    "piva": "03163990611",
+    "offerta": "Fix&Go24 New Luce",
+    "codice": "001260ESFML11XX0000N24FEGFXPOW26",
+    "prezzo": 0.18898,
+    "fisso_anno": 144.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 24,
+    "spesa_fornitore": 654.25,
+    "url": "https://www.uniongaseluce.it/",
+    "valida_fino": "2026-11-23"
+   },
+   {
+    "fornitore": "Asteaenergia",
+    "piva": "02078510423",
+    "offerta": "SERENA LUCE 36",
+    "codice": "001046ESFML01XXS36E1A04261261030",
+    "prezzo": 0.1892,
+    "fisso_anno": 144.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 36,
+    "spesa_fornitore": 654.84,
+    "url": "https://www.asteaenergia.it/offerta/serena-luce-36/",
+    "valida_fino": "2026-11-19"
    }
   ],
   "errore": null
@@ -584,7 +584,7 @@
  "gas": {
   "fonte": "caricamento manuale: PO_Offerte_G_MLIBERO_20261113.xml",
   "data_file": "2026-11-13",
-  "offerte_valide": 131,
+  "offerte_valide": 120,
   "top": [
    {
     "fornitore": "Vuscom",
@@ -600,19 +600,6 @@
     "valida_fino": "2026-11-30"
    },
    {
-    "fornitore": "Atenalucegas",
-    "piva": "02064090026",
-    "offerta": "ATENA PRIMA SCELTA GAS TOP",
-    "codice": "000567GSFML07XX00AGDOPRIMT261115",
-    "prezzo": 0.59,
-    "fisso_anno": 150.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 12,
-    "spesa_fornitore": 976.0,
-    "url": "https://www.atenalucegas.it/casa/altre-offerte",
-    "valida_fino": "2026-11-16"
-   },
-   {
     "fornitore": "Wow360",
     "piva": "02090620689",
     "offerta": "FIX CASA",
@@ -624,6 +611,19 @@
     "spesa_fornitore": 992.0,
     "url": "https://www.wow360.it/",
     "valida_fino": "2026-12-31"
+   },
+   {
+    "fornitore": "Eon Energia",
+    "piva": "03429130234",
+    "offerta": "E.ON GasClick Per 24",
+    "codice": "000362GSFML01XXMH06X0D240000A000",
+    "prezzo": 0.656,
+    "fisso_anno": 108.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 24,
+    "spesa_fornitore": 1026.4,
+    "url": "https://www.eon-energia.com/informazioni-utili/delibera-arera-di-prima-attuazione-dl-bollette.html",
+    "valida_fino": "2026-11-19"
    }
   ],
   "candidati": [
@@ -641,19 +641,6 @@
     "valida_fino": "2026-11-30"
    },
    {
-    "fornitore": "Atenalucegas",
-    "piva": "02064090026",
-    "offerta": "ATENA PRIMA SCELTA GAS TOP",
-    "codice": "000567GSFML07XX00AGDOPRIMT261115",
-    "prezzo": 0.59,
-    "fisso_anno": 150.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 12,
-    "spesa_fornitore": 976.0,
-    "url": "https://www.atenalucegas.it/casa/altre-offerte",
-    "valida_fino": "2026-11-16"
-   },
-   {
     "fornitore": "Wow360",
     "piva": "02090620689",
     "offerta": "FIX CASA",
@@ -665,19 +652,6 @@
     "spesa_fornitore": 992.0,
     "url": "https://www.wow360.it/",
     "valida_fino": "2026-12-31"
-   },
-   {
-    "fornitore": "Yes Energy",
-    "piva": "09174140963",
-    "offerta": "YES 059",
-    "codice": "024296GSFML01XXSUPFISSF0592610GG",
-    "prezzo": 0.59,
-    "fisso_anno": 186.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 12,
-    "spesa_fornitore": 1012.0,
-    "url": "https://www.yes-energy.it/",
-    "valida_fino": "2026-11-16"
    },
    {
     "fornitore": "Eon Energia",
@@ -888,19 +862,6 @@
     "valida_fino": "2026-11-23"
    },
    {
-    "fornitore": "Poste",
-    "piva": "06874351007",
-    "offerta": "Poste Energia Gas",
-    "codice": "036327GSFML14XX261030REPENGXXXXX",
-    "prezzo": 0.83,
-    "fisso_anno": 89.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 1251.0,
-    "url": "https://postepay.poste.it/gamma/poste-energia-luce-gas.html",
-    "valida_fino": "2026-11-16"
-   },
-   {
     "fornitore": "Bronistradellagaseluce",
     "piva": "01967760180",
     "offerta": "CASA CALORE SICURO 24",
@@ -964,19 +925,6 @@
     "spesa_fornitore": 1284.0,
     "url": "https://www.a2a.it/casa/a2a-click",
     "valida_fino": "2026-11-25"
-   },
-   {
-    "fornitore": "Seviren",
-    "piva": "03916040656",
-    "offerta": "SEV SUPER GAS FIX",
-    "codice": "001060GSFML04XX000SGDOSHGF261116",
-    "prezzo": 0.82,
-    "fisso_anno": 144.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 1292.0,
-    "url": "https://www.seviren.it/altre-offerte/",
-    "valida_fino": "2026-11-16"
    },
    {
     "fornitore": "Uniongaseluce",
