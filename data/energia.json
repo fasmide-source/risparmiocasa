@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-18T06:28:25.327031+00:00",
+ "aggiornato": "2026-11-19T06:25:12.961216+00:00",
  "profilo": {
   "E": {
    "consumo": 2700,
@@ -15,7 +15,7 @@
  "luce": {
   "fonte": "caricamento manuale: PO_Offerte_E_MLIBERO_20261113.xml",
   "data_file": "2026-11-13",
-  "offerte_valide": 184,
+  "offerte_valide": 177,
   "top": [
    {
     "fornitore": "Dolomitienergia",
@@ -254,19 +254,6 @@
     "valida_fino": "2027-06-30"
    },
    {
-    "fornitore": "Ajoenergia",
-    "piva": "03839870924",
-    "offerta": "AJO FISSO 12",
-    "codice": "030205ESVFL10XX000AJOFIXX12X1026",
-    "prezzo": 0.172,
-    "fisso_anno": 144.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 12,
-    "spesa_fornitore": 608.4,
-    "url": "https://ajoenergia.it/offerta-casa/ajo-fisso-12/",
-    "valida_fino": "2026-11-18"
-   },
-   {
     "fornitore": "Asmenergia",
     "piva": "01985180189",
     "offerta": "FIX24 LUCE CASA",
@@ -280,19 +267,6 @@
     "valida_fino": "2026-12-10"
    },
    {
-    "fornitore": "Engie",
-    "piva": "06289781004",
-    "offerta": "Resti e Risparmi Luce",
-    "codice": "001714ESFFL10XXRRIS0001000000000",
-    "prezzo": 0.17256,
-    "fisso_anno": 149.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 614.91,
-    "url": "https://www.engie.it/casa/",
-    "valida_fino": "2026-11-18"
-   },
-   {
     "fornitore": "Vivienergia",
     "piva": "13149000153",
     "offerta": "vivipremium fix24 luce",
@@ -304,19 +278,6 @@
     "spesa_fornitore": 615.15,
     "url": "https://documenti.vivienergia.it/VVPREMIUMEF",
     "valida_fino": "2026-11-19"
-   },
-   {
-    "fornitore": "Metamer",
-    "piva": "02030110692",
-    "offerta": "BLOCCO 36 LUCE",
-    "codice": "000670ESFML60XXEEDOMBLOCCO362026",
-    "prezzo": 0.1749,
-    "fisso_anno": 144.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 36,
-    "spesa_fornitore": 616.23,
-    "url": "https://www.metamer.it/",
-    "valida_fino": "2026-11-18"
    },
    {
     "fornitore": "Heracomm",
@@ -449,6 +410,19 @@
     "valida_fino": "2026-11-30"
    },
    {
+    "fornitore": "Ajoenergia",
+    "piva": "03839870924",
+    "offerta": "AJO FISSO 36",
+    "codice": "030205ESVFL11XX000AJOFIXX36X1126",
+    "prezzo": 0.185,
+    "fisso_anno": 144.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 12,
+    "spesa_fornitore": 643.5,
+    "url": "https://ajoenergia.it/offerta-casa/ajo-fisso-36/",
+    "valida_fino": "2026-12-06"
+   },
+   {
     "fornitore": "Sunriseenergia",
     "piva": "02073990976",
     "offerta": "CasaFixCap2603med",
@@ -577,6 +551,32 @@
     "spesa_fornitore": 654.84,
     "url": "https://www.asteaenergia.it/offerta/serena-luce-36/",
     "valida_fino": "2026-11-19"
+   },
+   {
+    "fornitore": "Martelius",
+    "piva": "01806250625",
+    "offerta": "GALATTICA 2.0.",
+    "codice": "038693ESFML01XX00000000000034737",
+    "prezzo": 0.1199,
+    "fisso_anno": 336.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 12,
+    "spesa_fornitore": 659.73,
+    "url": "https://martelius.it/",
+    "valida_fino": "2026-12-31"
+   },
+   {
+    "fornitore": "Sinergylucegas",
+    "piva": "03589630239",
+    "offerta": "FAMILY LUCE FIX ED S11",
+    "codice": "025867ESFFL01XX000001126S11FIXED",
+    "prezzo": 0.1958,
+    "fisso_anno": 144.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 12,
+    "spesa_fornitore": 672.66,
+    "url": "https://sinergylucegas.com/offerta-family-luce-fix-ed-s11/",
+    "valida_fino": "2026-11-30"
    }
   ],
   "errore": null
@@ -584,7 +584,7 @@
  "gas": {
   "fonte": "caricamento manuale: PO_Offerte_G_MLIBERO_20261113.xml",
   "data_file": "2026-11-13",
-  "offerte_valide": 120,
+  "offerte_valide": 117,
   "top": [
    {
     "fornitore": "Vuscom",
@@ -901,19 +901,6 @@
     "valida_fino": "2026-11-23"
    },
    {
-    "fornitore": "Engie",
-    "piva": "06289781004",
-    "offerta": "Energia PuntoFisso - 12 mesi",
-    "codice": "001714GSFML32XXPUMD0003200000000",
-    "prezzo": 0.845,
-    "fisso_anno": 90.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 12,
-    "spesa_fornitore": 1273.0,
-    "url": "https://www.engie.it/casa/offerte-luce-gas/energia-puntofisso-12mesi/",
-    "valida_fino": "2026-11-18"
-   },
-   {
     "fornitore": "A2A",
     "piva": "12883420155",
     "offerta": "A2A Click - GAS",
@@ -1081,19 +1068,6 @@
     "spesa_fornitore": 2044.0,
     "url": "https://drive.google.com/file/d/1XXMhDCMNcnQci2yUr01oJnDy-z4ibTx1/view?usp=drive_link",
     "valida_fino": "2026-12-31"
-   },
-   {
-    "fornitore": "Nen",
-    "piva": "10879560968",
-    "offerta": "Due Gas",
-    "codice": "029748GSFML01XX261105GDDUE000000",
-    "prezzo": 1.44,
-    "fisso_anno": 108.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 2124.0,
-    "url": "https://nen.it/attiva-nen",
-    "valida_fino": "2026-11-18"
    }
   ],
   "errore": null
