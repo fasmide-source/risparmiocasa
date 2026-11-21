@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-20T06:27:51.166332+00:00",
+ "aggiornato": "2026-11-21T06:21:51.556929+00:00",
  "profilo": {
   "E": {
    "consumo": 2700,
@@ -15,7 +15,7 @@
  "luce": {
   "fonte": "caricamento manuale: PO_Offerte_E_MLIBERO_20261113.xml",
   "data_file": "2026-11-13",
-  "offerte_valide": 151,
+  "offerte_valide": 150,
   "top": [
    {
     "fornitore": "Italygreenpower",
@@ -584,7 +584,7 @@
  "gas": {
   "fonte": "caricamento manuale: PO_Offerte_G_MLIBERO_20261113.xml",
   "data_file": "2026-11-13",
-  "offerte_valide": 95,
+  "offerte_valide": 93,
   "top": [
    {
     "fornitore": "Vuscom",
@@ -912,19 +912,6 @@
     "spesa_fornitore": 1348.6,
     "url": "https://segnoverde-webcli.serviceict.it/PortaleClienti/Landing/ListaListiniPubblici",
     "valida_fino": "2026-12-09"
-   },
-   {
-    "fornitore": "Piuenergia",
-    "piva": "01244170526",
-    "offerta": "GAS FIX CASA",
-    "codice": "001686GSFML00XXGFC1126DO00000000",
-    "prezzo": 0.9,
-    "fisso_anno": 102.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 12,
-    "spesa_fornitore": 1362.0,
-    "url": "https://www.piuenergia.it/attiva-ora/tutte-le-altre-offerte.php",
-    "valida_fino": "2026-11-20"
    },
    {
     "fornitore": "Energiapulita",
