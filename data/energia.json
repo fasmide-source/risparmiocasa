@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-23T06:35:08.758003+00:00",
+ "aggiornato": "2026-11-24T06:22:26.723844+00:00",
  "profilo": {
   "E": {
    "consumo": 2700,
@@ -15,7 +15,7 @@
  "luce": {
   "fonte": "caricamento manuale: PO_Offerte_E_MLIBERO_20261113.xml",
   "data_file": "2026-11-13",
-  "offerte_valide": 150,
+  "offerte_valide": 133,
   "top": [
    {
     "fornitore": "Italygreenpower",
@@ -161,19 +161,6 @@
     "spesa_fornitore": 586.23,
     "url": "https://www.polisenergia.it/cte-offerte",
     "valida_fino": "2026-11-30"
-   },
-   {
-    "fornitore": "Eniplenitude",
-    "piva": "12300020158",
-    "offerta": "Fixa Time 24 Luce",
-    "codice": "026160ESFML57XXLFIXA24VBAS051126",
-    "prezzo": 0.1639,
-    "fisso_anno": 144.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 586.53,
-    "url": "https://eniplenitude.com/offerta/casa/gas-e-luce",
-    "valida_fino": "2026-11-23"
    },
    {
     "fornitore": "Ovenergy",
@@ -397,45 +384,6 @@
     "valida_fino": "2026-12-31"
    },
    {
-    "fornitore": "Bronistradellagaseluce",
-    "piva": "01967760180",
-    "offerta": "DOMESTICO SICURO LUCE FISSO 24",
-    "codice": "000398ESFFL01XXBDFIZS24L26110020",
-    "prezzo": 0.187,
-    "fisso_anno": 144.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 648.9,
-    "url": "www.bronistradellagaseluce.it",
-    "valida_fino": "2026-11-23"
-   },
-   {
-    "fornitore": "Libarnagas",
-    "piva": "01760860161",
-    "offerta": "DOMESTICO SICURO LUCE FISSO 24",
-    "codice": "000785ESFFL01XXLDFIS24L261100300",
-    "prezzo": 0.187,
-    "fisso_anno": 144.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 648.9,
-    "url": "www.libarnagas.com",
-    "valida_fino": "2026-11-23"
-   },
-   {
-    "fornitore": "Unoenergy",
-    "piva": "01368720080",
-    "offerta": "DOMESTICO SICURO LUCE FISSO 24",
-    "codice": "001293ESFFL01XXEDFIXSI24L2611001",
-    "prezzo": 0.187,
-    "fisso_anno": 144.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 648.9,
-    "url": "https://www.unoenergy.it/",
-    "valida_fino": "2026-11-23"
-   },
-   {
     "fornitore": "Esaenergia",
     "piva": "02116360690",
     "offerta": "PREZZO FISSO LUCE CASA 24 MESI",
@@ -486,19 +434,6 @@
     "spesa_fornitore": 654.0,
     "url": "https://www.ermespower.it/offerte/",
     "valida_fino": "2027-01-31"
-   },
-   {
-    "fornitore": "Uniongaseluce",
-    "piva": "03163990611",
-    "offerta": "Fix&Go24 New Luce",
-    "codice": "001260ESFML11XX0000N24FEGFXPOW26",
-    "prezzo": 0.18898,
-    "fisso_anno": 144.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 654.25,
-    "url": "https://www.uniongaseluce.it/",
-    "valida_fino": "2026-11-23"
    },
    {
     "fornitore": "Martelius",
@@ -577,6 +512,71 @@
     "spesa_fornitore": 710.43,
     "url": "www.bartonenergy.it/offerte-luce-casa-b-flat-home",
     "valida_fino": "2026-12-19"
+   },
+   {
+    "fornitore": "Segnoverde",
+    "piva": "01884540467",
+    "offerta": "CHIARISSIMA FIX PERTE",
+    "codice": "000453ESFML01XX51360CHIARISSITEC",
+    "prezzo": 0.20889,
+    "fisso_anno": 160.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 24,
+    "spesa_fornitore": 724.0,
+    "url": "https://segnoverde-webcli.serviceict.it/PortaleClienti/Landing/ListaListiniPubblici",
+    "valida_fino": "2026-12-09"
+   },
+   {
+    "fornitore": "Optimaitalia",
+    "piva": "07469040633",
+    "offerta": "Super Casa Smart",
+    "codice": "002626ESFML01XX2540X5829OOOOOOOO",
+    "prezzo": 0.2217,
+    "fisso_anno": 144.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 24,
+    "spesa_fornitore": 742.59,
+    "url": "https://www.optimaitalia.com/tutte-offerte.html",
+    "valida_fino": "2026-12-13"
+   },
+   {
+    "fornitore": "Energiapulita",
+    "piva": "10802400969",
+    "offerta": "CASA SICURA",
+    "codice": "029456ESFML01XX50843CASAXSICUEPN",
+    "prezzo": 0.20889,
+    "fisso_anno": 180.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 24,
+    "spesa_fornitore": 744.0,
+    "url": "https://enepulita-webcli.serviceict.it/PortaleClienti/Landing/ListaListiniPubblici",
+    "valida_fino": "2026-12-09"
+   },
+   {
+    "fornitore": "Energicalucegas",
+    "piva": "02189860063",
+    "offerta": "Energica Km0",
+    "codice": "000552ESFML01XXM26ENERGICAKM0DOM",
+    "prezzo": 0.2365,
+    "fisso_anno": 120.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 12,
+    "spesa_fornitore": 758.55,
+    "url": "https://www.energicalucegas.it/it/luce/offerte_mercato_libero/energica-km0/",
+    "valida_fino": "2026-11-30"
+   },
+   {
+    "fornitore": "Enegan",
+    "piva": "06017420487",
+    "offerta": "Famiglia_Spensierata_+",
+    "codice": "002521ESFML03XX000000000000EPSDO",
+    "prezzo": 0.1899,
+    "fisso_anno": 262.8,
+    "una_tantum": 0.0,
+    "durata_mesi": null,
+    "spesa_fornitore": 775.53,
+    "url": "https://www.enegan.it/offerte-consumer-enegan",
+    "valida_fino": "2026-12-31"
    }
   ],
   "errore": null
@@ -584,7 +584,7 @@
  "gas": {
   "fonte": "caricamento manuale: PO_Offerte_G_MLIBERO_20261113.xml",
   "data_file": "2026-11-13",
-  "offerte_valide": 93,
+  "offerte_valide": 81,
   "top": [
    {
     "fornitore": "Vuscom",
@@ -784,58 +784,6 @@
     "valida_fino": "2026-12-17"
    },
    {
-    "fornitore": "Eniplenitude",
-    "piva": "12300020158",
-    "offerta": "Fixa Time 24 Gas",
-    "codice": "026160GSFML57XX0GFIXA24BAS051126",
-    "prezzo": 0.79,
-    "fisso_anno": 144.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 1250.0,
-    "url": "https://eniplenitude.com/offerta/casa/gas-e-luce",
-    "valida_fino": "2026-11-23"
-   },
-   {
-    "fornitore": "Bronistradellagaseluce",
-    "piva": "01967760180",
-    "offerta": "CASA CALORE SICURO 24",
-    "codice": "000398GSFML02XX00024BROCCS061126",
-    "prezzo": 0.799,
-    "fisso_anno": 144.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 1262.6,
-    "url": "www.bronistradellagaseluce.it/offerte-casa/",
-    "valida_fino": "2026-11-23"
-   },
-   {
-    "fornitore": "Libarnagas",
-    "piva": "01760860161",
-    "offerta": "CASA CALORE SICURO 24",
-    "codice": "000785GSFML02XX00024LIBCCS061126",
-    "prezzo": 0.799,
-    "fisso_anno": 144.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 1262.6,
-    "url": "www.libarnagas.com",
-    "valida_fino": "2026-11-23"
-   },
-   {
-    "fornitore": "Unoenergy",
-    "piva": "01368720080",
-    "offerta": "CASA CALORE SICURO 24",
-    "codice": "001293GSFML02XX00024UEGCCS061126",
-    "prezzo": 0.799,
-    "fisso_anno": 144.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 1262.6,
-    "url": "www.unoenergy.it/casa/gas/",
-    "valida_fino": "2026-11-23"
-   },
-   {
     "fornitore": "Eon Energia",
     "piva": "03429130234",
     "offerta": "E.ON Gas Tua Per 24",
@@ -860,19 +808,6 @@
     "spesa_fornitore": 1284.0,
     "url": "https://www.a2a.it/casa/a2a-click",
     "valida_fino": "2026-11-25"
-   },
-   {
-    "fornitore": "Uniongaseluce",
-    "piva": "03163990611",
-    "offerta": "Fix&Go24 New Gas",
-    "codice": "001260GSFML11XX00N24FEGGFFXNEG26",
-    "prezzo": 0.83,
-    "fisso_anno": 144.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 1306.0,
-    "url": "https://www.uniongaseluce.it",
-    "valida_fino": "2026-11-23"
    },
    {
     "fornitore": "Egreenitalia",
