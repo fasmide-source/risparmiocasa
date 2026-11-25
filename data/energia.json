@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-24T06:22:26.723844+00:00",
+ "aggiornato": "2026-11-25T06:23:27.443501+00:00",
  "profilo": {
   "E": {
    "consumo": 2700,
@@ -15,7 +15,7 @@
  "luce": {
   "fonte": "caricamento manuale: PO_Offerte_E_MLIBERO_20261113.xml",
   "data_file": "2026-11-13",
-  "offerte_valide": 133,
+  "offerte_valide": 129,
   "top": [
    {
     "fornitore": "Italygreenpower",
@@ -109,19 +109,6 @@
     "spesa_fornitore": 547.65,
     "url": "https://asectrade.it/offerte/",
     "valida_fino": "2026-12-31"
-   },
-   {
-    "fornitore": "Alperia",
-    "piva": "01745520211",
-    "offerta": "Alperia Smile Safety",
-    "codice": "000368ESFML04XX4975666X261111XVE",
-    "prezzo": 0.1694,
-    "fisso_anno": 109.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 36,
-    "spesa_fornitore": 566.38,
-    "url": "https://www.alperia.eu/offerta/alperia-smile-safety",
-    "valida_fino": "2026-11-24"
    },
    {
     "fornitore": "Ccrenergia",
@@ -577,6 +564,19 @@
     "spesa_fornitore": 775.53,
     "url": "https://www.enegan.it/offerte-consumer-enegan",
     "valida_fino": "2026-12-31"
+   },
+   {
+    "fornitore": "Eviso",
+    "piva": "03468380047",
+    "offerta": "eVISOME FIX 2NOV26 con100% RINNOVABILE",
+    "codice": "014821ESFML01XX0000000000005799M",
+    "prezzo": 0.2387,
+    "fisso_anno": 144.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 18,
+    "spesa_fornitore": 788.49,
+    "url": "https://eviso.it/servizi/per-la-casa/fornitura-luce-gas-per-la-casa/",
+    "valida_fino": "2027-02-01"
    }
   ],
   "errore": null
