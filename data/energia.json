@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-25T06:23:27.443501+00:00",
+ "aggiornato": "2026-11-26T06:23:39.387559+00:00",
  "profilo": {
   "E": {
    "consumo": 2700,
@@ -15,7 +15,7 @@
  "luce": {
   "fonte": "caricamento manuale: PO_Offerte_E_MLIBERO_20261113.xml",
   "data_file": "2026-11-13",
-  "offerte_valide": 129,
+  "offerte_valide": 115,
   "top": [
    {
     "fornitore": "Italygreenpower",
@@ -202,19 +202,6 @@
     "valida_fino": "2026-12-10"
    },
    {
-    "fornitore": "Heracomm",
-    "piva": "02221101203",
-    "offerta": "PiuControllo Flat Easy Casa EE_24",
-    "codice": "000415ESFML01XX000FLTE2GEC24XV55",
-    "prezzo": 0.18392,
-    "fisso_anno": 120.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 30,
-    "spesa_fornitore": 616.58,
-    "url": "https://heracomm.gruppohera.it/casa/offerte-luce-gas/no-web/piucontrollo-flat-easy-casa",
-    "valida_fino": "2026-11-25"
-   },
-   {
     "fornitore": "Tirreniaenergia",
     "piva": "06029650659",
     "offerta": "ENERGIA FISSO DOM  Q12 24M",
@@ -306,19 +293,6 @@
     "valida_fino": "2026-11-26"
    },
    {
-    "fornitore": "A2A",
-    "piva": "12883420155",
-    "offerta": "A2A Click Luce",
-    "codice": "000294ESFML01XXA2AClick261134650",
-    "prezzo": 0.199,
-    "fisso_anno": 102.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 12,
-    "spesa_fornitore": 639.3,
-    "url": "https://www.a2a.it/casa/a2a-click",
-    "valida_fino": "2026-11-25"
-   },
-   {
     "fornitore": "Unionenergia",
     "piva": "02195350687",
     "offerta": "FIXSML1LCMT0127A",
@@ -369,19 +343,6 @@
     "spesa_fornitore": 644.4,
     "url": "https://www.sunrisesrl.it/offerte-luce/",
     "valida_fino": "2026-12-31"
-   },
-   {
-    "fornitore": "Esaenergia",
-    "piva": "02116360690",
-    "offerta": "PREZZO FISSO LUCE CASA 24 MESI",
-    "codice": "001785ESFML01XXFISSODOMLV2241126",
-    "prezzo": 0.17391,
-    "fisso_anno": 180.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 649.56,
-    "url": "https://www.esaenergia.it/prodotti/",
-    "valida_fino": "2026-11-25"
    },
    {
     "fornitore": "Gasway",
@@ -577,6 +538,32 @@
     "spesa_fornitore": 788.49,
     "url": "https://eviso.it/servizi/per-la-casa/fornitura-luce-gas-per-la-casa/",
     "valida_fino": "2027-02-01"
+   },
+   {
+    "fornitore": "Pefpower",
+    "piva": "02306970514",
+    "offerta": "Fisso_Rata_Costante_Luce_Home_EE_DO",
+    "codice": "028280ESFML01XXXXXXXEDL26BXDOXRF",
+    "prezzo": 0.21737,
+    "fisso_anno": 236.95,
+    "una_tantum": 0.0,
+    "durata_mesi": null,
+    "spesa_fornitore": 823.85,
+    "url": "https://www.pefpower.it/it/home",
+    "valida_fino": "2026-12-31"
+   },
+   {
+    "fornitore": "Ape Energia",
+    "piva": "03288990710",
+    "offerta": "Bee Flat",
+    "codice": "000432ESFML01XXAPEBEEFLAT2026V05",
+    "prezzo": 0.2612,
+    "fisso_anno": 144.0,
+    "una_tantum": 0.0,
+    "durata_mesi": 26,
+    "spesa_fornitore": 849.24,
+    "url": "https://www.ape-energia.it/offerte-luce/",
+    "valida_fino": "2026-12-10"
    }
   ],
   "errore": null
@@ -584,7 +571,7 @@
  "gas": {
   "fonte": "caricamento manuale: PO_Offerte_G_MLIBERO_20261113.xml",
   "data_file": "2026-11-13",
-  "offerte_valide": 81,
+  "offerte_valide": 68,
   "top": [
    {
     "fornitore": "Vuscom",
@@ -719,19 +706,6 @@
     "valida_fino": "2026-12-11"
    },
    {
-    "fornitore": "Esaenergia",
-    "piva": "02116360690",
-    "offerta": "PREZZO FISSO GAS CASA 24 MESI",
-    "codice": "001785GSFML01XXFISSODOMGV2241126",
-    "prezzo": 0.74,
-    "fisso_anno": 180.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 1216.0,
-    "url": "https://www.esaenergia.it/prodotti/",
-    "valida_fino": "2026-11-25"
-   },
-   {
     "fornitore": "Asmenergia",
     "piva": "01985180189",
     "offerta": "FIX24 GAS CASA",
@@ -758,19 +732,6 @@
     "valida_fino": "2026-12-05"
    },
    {
-    "fornitore": "Heracomm",
-    "piva": "02221101203",
-    "offerta": "PiuControllo Flat Easy Casa Gas",
-    "codice": "000415GSFML01XX000FLTE2GXGXCXV56",
-    "prezzo": 0.779,
-    "fisso_anno": 144.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 30,
-    "spesa_fornitore": 1234.6,
-    "url": "https://heracomm.gruppohera.it/casa/offerte-luce-gas/no-web/piucontrollo-flat-easy-casa",
-    "valida_fino": "2026-11-25"
-   },
-   {
     "fornitore": "Abacoenergia",
     "piva": "04913370260",
     "offerta": "Focus CASA Gas 2402XXVI Special",
@@ -795,19 +756,6 @@
     "spesa_fornitore": 1279.2,
     "url": "https://www.eon-energia.com/informazioni-utili/delibera-arera-di-prima-attuazione-dl-bollette.html",
     "valida_fino": "2026-11-26"
-   },
-   {
-    "fornitore": "A2A",
-    "piva": "12883420155",
-    "offerta": "A2A Click - GAS",
-    "codice": "000294GSFML01XXA2AClick261134603",
-    "prezzo": 0.84,
-    "fisso_anno": 108.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 12,
-    "spesa_fornitore": 1284.0,
-    "url": "https://www.a2a.it/casa/a2a-click",
-    "valida_fino": "2026-11-25"
    },
    {
     "fornitore": "Egreenitalia",
