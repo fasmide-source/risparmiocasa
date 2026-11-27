@@ -1,5 +1,5 @@
 {
- "aggiornato": "2026-11-26T06:23:39.387559+00:00",
+ "aggiornato": "2026-11-27T06:26:34.575491+00:00",
  "profilo": {
   "E": {
    "consumo": 2700,
@@ -15,7 +15,7 @@
  "luce": {
   "fonte": "caricamento manuale: PO_Offerte_E_MLIBERO_20261113.xml",
   "data_file": "2026-11-13",
-  "offerte_valide": 115,
+  "offerte_valide": 102,
   "top": [
    {
     "fornitore": "Italygreenpower",
@@ -122,19 +122,6 @@
     "spesa_fornitore": 573.3,
     "url": "https://www.ccrenergia.it/",
     "valida_fino": "2026-11-30"
-   },
-   {
-    "fornitore": "Novaaeg",
-    "piva": "02616630022",
-    "offerta": "NOVANOW WEB - ENERGIA FLAT - MONORARIA",
-    "codice": "025434ESFML03XX00000001057380126",
-    "prezzo": 0.199,
-    "fisso_anno": 48.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 36,
-    "spesa_fornitore": 585.3,
-    "url": "https://novanow.it/offerte/luce-flat-monoraria-web/",
-    "valida_fino": "2026-11-26"
    },
    {
     "fornitore": "Polisenergia",
@@ -278,19 +265,6 @@
     "spesa_fornitore": 635.3,
     "url": "https://agespenergia.it/offerte-energia-elettrica/mia-fissa-luce/",
     "valida_fino": "2026-11-30"
-   },
-   {
-    "fornitore": "Eon Energia",
-    "piva": "03429130234",
-    "offerta": "E.ON Luce Tua Per 24",
-    "codice": "000362ESFML01XXZL16X0D000000B000",
-    "prezzo": 0.1918,
-    "fisso_anno": 121.11,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 638.97,
-    "url": "https://www.eon-energia.com/informazioni-utili/delibera-arera-di-prima-attuazione-dl-bollette.html",
-    "valida_fino": "2026-11-26"
    },
    {
     "fornitore": "Unionenergia",
@@ -571,7 +545,7 @@
  "gas": {
   "fonte": "caricamento manuale: PO_Offerte_G_MLIBERO_20261113.xml",
   "data_file": "2026-11-13",
-  "offerte_valide": 68,
+  "offerte_valide": 61,
   "top": [
    {
     "fornitore": "Vuscom",
@@ -680,19 +654,6 @@
     "valida_fino": "2027-01-31"
    },
    {
-    "fornitore": "Novaaeg",
-    "piva": "02616630022",
-    "offerta": "NOVANOW WEB - GAS FLAT",
-    "codice": "025434GSFML03XX00000001057420126",
-    "prezzo": 0.79301,
-    "fisso_anno": 48.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 36,
-    "spesa_fornitore": 1158.21,
-    "url": "https://novanow.it/offerte/gas-flat-web/",
-    "valida_fino": "2026-11-26"
-   },
-   {
     "fornitore": "Illumia",
     "piva": "02356770988",
     "offerta": "Energia Lunga Gas",
@@ -743,19 +704,6 @@
     "spesa_fornitore": 1250.0,
     "url": "https://www.abacoenergia.it",
     "valida_fino": "2026-12-17"
-   },
-   {
-    "fornitore": "Eon Energia",
-    "piva": "03429130234",
-    "offerta": "E.ON Gas Tua Per 24",
-    "codice": "000362GSFML01XXMH06X0DSTD000B000",
-    "prezzo": 0.828,
-    "fisso_anno": 120.0,
-    "una_tantum": 0.0,
-    "durata_mesi": 24,
-    "spesa_fornitore": 1279.2,
-    "url": "https://www.eon-energia.com/informazioni-utili/delibera-arera-di-prima-attuazione-dl-bollette.html",
-    "valida_fino": "2026-11-26"
    },
    {
     "fornitore": "Egreenitalia",
